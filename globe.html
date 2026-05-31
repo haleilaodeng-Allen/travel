@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiffany Vacation Globe</title>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  background:linear-gradient(180deg,#B8F4F0 0%,#7FD8E7 45%,#EFFFFD 100%);
+  font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+}
+
+#globeBox{width:100%;height:100%}
+
+.title{
+  position:absolute;
+  top:32px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#075F73;
+  font-size:34px;
+  font-weight:700;
+  z-index:10;
+}
+
+.subtitle{
+  position:absolute;
+  top:78px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#237B8A;
+  font-size:16px;
+  z-index:10;
+}
+</style>
+</head>
+
+<body>
+
+<div class="title">Your Vacation World</div>
+<div class="subtitle">Phuket · Bali · Maldives · Bangkok · Tokyo</div>
+<div id="globeBox"></div>
+
+<script>
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+  60,
+  window.innerWidth/window.innerHeight,
+  0.1,
+  1000
+);
+camera.position.set(0,0,13);
+
+const renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+document.getElementById("globeBox").appendChild(renderer.domElement);
+
+/* 深蓝海洋 */
+const globe = new THREE.Mesh(
+  new THREE.SphereGeometry(5,128,128),
+  new THREE.MeshStandardMaterial({
+    color:0x005F8F,
+    roughness:0.85,
+    metalness:0.05
+  })
+);
+scene.add(globe);
+
+/* 黄色陆地 */
+const landMaterial = new THREE.MeshStandardMaterial({
+  color:0xFFD56B,
+  roughness:1,
+  metalness:0
+});
+
+function createLand(lat,lon,sizeX,sizeY,rot){
+  const shape = new THREE.Shape();
+  shape.moveTo(0,0.65);
+  shape.bezierCurveTo(0.75,0.95,1.35,0.35,1.05,-0.25);
+  shape.bezierCurveTo(0.8,-0.95,-0.4,-0.9,-0.95,-0.35);
+  shape.bezierCurveTo(-1.4,0.2,-0.75,0.8,0,0.65);
+
+  const mesh = new THREE.Mesh(new THREE.ShapeGeometry(shape),landMaterial);
+
+  const r = 5.05;
+  const phi = (90-lat)*Math.PI/180;
+  const theta = (lon+180)*Math.PI/180;
+
+  mesh.position.set(
+    -r*Math.sin(phi)*Math.cos(theta),
+    r*Math.cos(phi),
+    r*Math.sin(phi)*Math.sin(theta)
+  );
+
+  mesh.lookAt(0,0,0);
+  mesh.rotateZ(rot);
+  mesh.scale.set(sizeX,sizeY,1);
+  globe.add(mesh);
+}
+
+/* 插画风陆地 */
+createLand(35,90,1.7,0.9,0.15);
+createLand(12,105,1.1,0.55,-0.35);
+createLand(-25,135,1.0,0.58,0.55);
+createLand(42,20,1.3,0.7,-0.25);
+createLand(5,25,1.3,0.9,0.1);
+createLand(38,-100,1.45,0.8,0.35);
+createLand(-20,-60,1.15,0.75,-0.45);
+
+/* 绿色点缀，像森林/度假岛 */
+const greenMaterial = new THREE.MeshBasicMaterial({color:0x38B96D});
+
+function addGreen(lat,lon,size){
+  const r = 5.18;
+  const phi = (90-lat)*Math.PI/180;
+  const theta = (lon+180)*Math.PI/180;
+
+  const dot = new THREE.Mesh(
+    new THREE.SphereGeometry(size,20,20),
+    greenMaterial
+  );
+
+  dot.position.set(
+    -r*Math.sin(phi)*Math.cos(theta),
+    r*Math.cos(phi),
+    r*Math.sin(phi)*Math.sin(theta)
+  );
+
+  globe.add(dot);
+}
+
+addGreen(8,98,0.12);
+addGreen(-8,115,0.12);
+addGreen(3,73,0.12);
+addGreen(35,139,0.1);
+addGreen(13,100,0.1);
+addGreen(-15,130,0.12);
+addGreen(20,80,0.1);
+
+/* 金色旅行路线 */
+function addRoute(points){
+  const curvePoints = points.map(p=>{
+    const r = 5.38;
+    const phi = (90-p.lat)*Math.PI/180;
+    const theta = (p.lon+180)*Math.PI/180;
+
+    return new THREE.Vector3(
+      -r*Math.sin(phi)*Math.cos(theta),
+      r*Math.cos(phi),
+      r*Math.sin(phi)*Math.sin(theta)
+    );
+  });
+
+  const curve = new THREE.CatmullRomCurve3(curvePoints);
+  const geometry = new THREE.TubeGeometry(curve,100,0.025,8,false);
+
+  const material = new THREE.MeshBasicMaterial({
+    color:0xFFE28A
+  });
+
+  const route = new THREE.Mesh(geometry,material);
+  globe.add(route);
+}
+
+addRoute([
+  {lat:7.88,lon:98.39},
+  {lat:13.75,lon:100.50},
+  {lat:-8.34,lon:115.09},
+  {lat:3.20,lon:73.22},
+  {lat:35.68,lon:139.69}
+]);
+
+/* 目的地标签 */
+function createLabel(text,icon){
+  const canvas = document.createElement("canvas");
+  canvas.width = 440;
+  canvas.height = 130;
+  const ctx = canvas.getContext("2d");
+
+  ctx.fillStyle = "rgba(255,255,255,0.88)";
+  roundRect(ctx,20,22,380,72,34);
+  ctx.fill();
+
+  ctx.fillStyle = "#FFD56B";
+  ctx.font = "36px Arial";
+  ctx.fillText(icon,42,72);
+
+  ctx.fillStyle = "#075F73";
+  ctx.font = "bold 32px Trebuchet MS";
+  ctx.fillText(text,96,73);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  const material = new THREE.SpriteMaterial({map:texture,transparent:true});
+  const sprite = new THREE.Sprite(material);
+  sprite.scale.set(2.6,0.78,1);
+  return sprite;
+}
+
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.lineTo(x+w-r,y);
+  ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r);
+  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h);
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r);
+  ctx.quadraticCurveTo(x,y,x+r,y);
+  ctx.closePath();
+}
+
+function addDestination(lat,lon,name,icon){
+  const r = 5.35;
+  const phi = (90-lat)*Math.PI/180;
+  const theta = (lon+180)*Math.PI/180;
+
+  const pos = new THREE.Vector3(
+    -r*Math.sin(phi)*Math.cos(theta),
+    r*Math.cos(phi),
+    r*Math.sin(phi)*Math.sin(theta)
+  );
+
+  const marker = new THREE.Mesh(
+    new THREE.SphereGeometry(0.12,24,24),
+    new THREE.MeshBasicMaterial({color:0xFFD56B})
+  );
+  marker.position.copy(pos);
+  globe.add(marker);
+
+  const label = createLabel(name,icon);
+  label.position.copy(pos.clone().multiplyScalar(1.15));
+  globe.add(label);
+}
+
+addDestination(7.88,98.39,"Phuket","🌴");
+addDestination(-8.34,115.09,"Bali","🌺");
+addDestination(3.20,73.22,"Maldives","🐠");
+addDestination(13.75,100.50,"Bangkok","✨");
+addDestination(35.68,139.69,"Tokyo","🗼");
+
+/* 光 */
+scene.add(new THREE.AmbientLight(0xffffff,0.85));
+
+const light = new THREE.DirectionalLight(0xffffff,1.15);
+light.position.set(5,5,6);
+scene.add(light);
+
+/* 控制 */
+const controls = new THREE.OrbitControls(camera,renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.06;
+controls.enablePan = false;
+controls.enableZoom = true;
+controls.minDistance = 8;
+controls.maxDistance = 20;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.32;
+
+/* 动画 */
+function animate(){
+  requestAnimationFrame(animate);
+  globe.rotation.y += 0.00025;
+  controls.update();
+  renderer.render(scene,camera);
+}
+animate();
+
+window.addEventListener("resize",()=>{
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth,window.innerHeight);
+});
+</script>
+
+</body>
+</html>
