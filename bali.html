@@ -102,11 +102,11 @@ body{background:var(--sand);color:var(--text);font-family:'Noto Sans SC',sans-se
 
 <section id="hero">
   <div id="media-container">
-    <div class="media-slide active"><img src="bali1.jpg" alt="巴厘岛梯田"></div>
-    <div class="media-slide"><img src="bali2.jpg" alt="巴厘岛梯田2"></div>
-    <div class="media-slide"><img src="bali3.jpg" alt="布罗莫火山"></div>
-    <div class="media-slide"><video src="bali_video1.mp4" autoplay muted loop playsinline></video></div>
-    <div class="media-slide"><video src="bali_video2.mp4" autoplay muted loop playsinline></video></div>
+    <div class="media-slide active"><img data-src="bali1" alt="巴厘岛梯田"></div>
+    <div class="media-slide"><img data-src="bali2" alt="巴厘岛梯田2"></div>
+    <div class="media-slide"><img data-src="bali3" alt="布罗莫火山"></div>
+    <div class="media-slide"><video data-src="bali_video1" autoplay muted loop playsinline></video></div>
+    <div class="media-slide"><video data-src="bali_video2" autoplay muted loop playsinline></video></div>
   </div>
   <div id="media-dots">
     <div class="dot active" onclick="goToSlide(0)"></div>
@@ -116,7 +116,7 @@ body{background:var(--sand);color:var(--text);font-family:'Noto Sans SC',sans-se
     <div class="dot" onclick="goToSlide(4)"></div>
   </div>
   <div id="hero-content">
-    <div class="dest-eyebrow">Anantara Destinations · 安纳塔拉目的地</div>
+    <a href="globe-travel-journal.html" style="position:fixed;top:24px;left:28px;z-index:100;background:rgba(255,255,255,0.85);color:#2d4a3e;border:1.5px solid rgba(45,74,62,0.15);padding:8px 18px;border-radius:30px;font-size:12px;letter-spacing:2px;text-decoration:none;backdrop-filter:blur(8px);font-family:Noto Sans SC,sans-serif;transition:all 0.2s" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.85)'">← 地球</a><div class="dest-eyebrow">Anantara Destinations · 安纳塔拉目的地</div>
     <div class="dest-name-zh">巴厘岛</div>
     <div class="dest-name-en">Bali, Indonesia</div>
     <div class="dest-tagline">众神之岛，每一寸风景都是礼物<em>The Island of Gods, where every view is a gift</em></div>
@@ -137,21 +137,21 @@ body{background:var(--sand);color:var(--text);font-family:'Noto Sans SC',sans-se
     <span class="section-en">Gallery</span>
   </div>
   <div class="photo-grid reveal">
-    <div class="photo-item" onclick="openLightbox('img','bali1.jpg')">
-      <img src="bali1.jpg" alt="梯田"><div class="photo-overlay"></div>
+    <div class="photo-item" onclick="openLightboxAuto('bali1')">
+      <img data-src="bali1" alt="梯田"><div class="photo-overlay"></div>
     </div>
-    <div class="photo-item" onclick="openLightbox('img','bali2.jpg')">
-      <img src="bali2.jpg" alt="梯田2"><div class="photo-overlay"></div>
+    <div class="photo-item" onclick="openLightboxAuto('bali2')">
+      <img data-src="bali2" alt="梯田2"><div class="photo-overlay"></div>
     </div>
-    <div class="photo-item" onclick="openLightbox('img','bali3.jpg')">
-      <img src="bali3.jpg" alt="火山"><div class="photo-overlay"></div>
+    <div class="photo-item" onclick="openLightboxAuto('bali3')">
+      <img data-src="bali3" alt="火山"><div class="photo-overlay"></div>
     </div>
-    <div class="photo-item" onclick="openLightbox('video','bali_video1.mp4')">
-      <video src="bali_video1.mp4" muted loop autoplay playsinline></video>
+    <div class="photo-item" onclick="openLightboxVideoAuto('bali_video1')">
+      <video data-src="bali_video1" muted loop autoplay playsinline></video>
       <div class="video-badge">▶ 视频</div><div class="photo-overlay"></div>
     </div>
-    <div class="photo-item" onclick="openLightbox('video','bali_video2.mp4')">
-      <video src="bali_video2.mp4" muted loop autoplay playsinline></video>
+    <div class="photo-item" onclick="openLightboxVideoAuto('bali_video2')">
+      <video data-src="bali_video2" muted loop autoplay playsinline></video>
       <div class="video-badge">▶ 视频</div><div class="photo-overlay"></div>
     </div>
   </div>
@@ -259,6 +259,65 @@ function closeLightbox(){
   document.getElementById('lightbox').classList.remove('show');
   document.getElementById('lightbox-content').innerHTML='';
 }
+
+function openLightboxAuto(base){
+  const exts=['jpg','jpeg','png','gif','webp'];
+  let i=0;
+  const lbc=document.getElementById('lightbox-content');
+  const lb=document.getElementById('lightbox');
+  function tryNext(){
+    if(i>=exts.length)return;
+    const img=new Image();
+    img.onload=()=>{lbc.innerHTML=`<img src="${base}.${exts[i-1]}">`;lb.classList.add('show');};
+    img.onerror=()=>{i++;tryNext();};
+    img.src=base+'.'+exts[i];i++;
+  }
+  tryNext();
+}
+function openLightboxVideoAuto(base){
+  const exts=['mp4','mov','webm'];
+  let i=0;
+  const lbc=document.getElementById('lightbox-content');
+  const lb=document.getElementById('lightbox');
+  function tryNext(){
+    if(i>=exts.length)return;
+    lbc.innerHTML=`<video src="${base}.${exts[i]}" controls autoplay style="max-width:90vw;max-height:88vh;border-radius:8px"></video>`;
+    lb.classList.add('show');
+  }
+  tryNext();
+}
+
+function autoImg(el){
+  const base=el.getAttribute('data-src');
+  if(!base)return;
+  const exts=['jpg','jpeg','png','gif','webp'];
+  let i=0;
+  function tryNext(){
+    if(i>=exts.length){el.style.display='none';return;}
+    el.src=base+'.'+exts[i];
+    el.onerror=()=>{i++;tryNext();};
+    el.onload=()=>{el.onerror=null;};
+  }
+  tryNext();
+}
+function autoVideo(el){
+  const base=el.getAttribute('data-src');
+  if(!base)return;
+  const exts=['mp4','mov','webm'];
+  let i=0;
+  function tryNext(){
+    if(i>=exts.length){el.style.display='none';return;}
+    el.src=base+'.'+exts[i];
+    el.onerror=()=>{i++;tryNext();};
+    el.onload=()=>{el.onerror=null;};
+  }
+  tryNext();
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('img[data-src]').forEach(autoImg);
+  document.querySelectorAll('video[data-src]').forEach(el=>{autoVideo(el);el.load();});
+});
+
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
 </script>
 </body>
