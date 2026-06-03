@@ -58,6 +58,29 @@ body{
   -webkit-user-drag:none;
 }
 
+/* 坐标工具 */
+#coord-tool{
+  position:fixed;bottom:80px;right:20px;z-index:200;
+  background:rgba(0,0,0,0.85);color:#fff;
+  padding:12px 16px;border-radius:12px;
+  font-size:13px;font-family:monospace;
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.15);
+  display:none;
+}
+#coord-display{
+  font-size:16px;color:#4caf50;
+  margin-top:4px;letter-spacing:1px;
+}
+#edit-toggle{
+  position:fixed;bottom:20px;right:20px;z-index:200;
+  background:rgba(255,150,50,0.9);color:#fff;
+  border:none;padding:10px 18px;border-radius:24px;
+  font-size:12px;cursor:pointer;letter-spacing:1px;
+  font-family:'Noto Sans SC',sans-serif;
+  backdrop-filter:blur(8px);
+}
+
 /* ── HOTSPOT BASE ── */
 .hotspot{
   position:absolute;
@@ -255,6 +278,14 @@ body{
 </head>
 <body>
 
+<!-- 坐标工具 -->
+<button id="edit-toggle" onclick="toggleEdit()">📍 坐标模式</button>
+<div id="coord-tool">
+  点击地图获取坐标
+  <div id="coord-display">--</div>
+  <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:6px">复制坐标发给我</div>
+</div>
+
 <!-- HEADER -->
 <div id="header">
   <a href="bali.html" class="back-btn">← 巴厘岛</a>
@@ -448,6 +479,26 @@ function closePopup(e){
 }
 
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('popup-overlay').classList.remove('show');});
+
+// 坐标工具
+let editMode=false;
+function toggleEdit(){
+  editMode=!editMode;
+  const tool=document.getElementById('coord-tool');
+  const btn=document.getElementById('edit-toggle');
+  tool.style.display=editMode?'block':'none';
+  btn.style.background=editMode?'rgba(255,50,50,0.9)':'rgba(255,150,50,0.9)';
+  btn.textContent=editMode?'❌ 退出坐标模式':'📍 坐标模式';
+  document.getElementById('map-img').style.cursor=editMode?'crosshair':'default';
+}
+
+document.getElementById('map-img').addEventListener('click',function(e){
+  if(!editMode)return;
+  const rect=this.getBoundingClientRect();
+  const x=((e.clientX-rect.left)/rect.width*100).toFixed(1);
+  const y=((e.clientY-rect.top)/rect.height*100).toFixed(1);
+  document.getElementById('coord-display').textContent=`left:${x}%, top:${y}%`;
+});
 </script>
 </body>
 </html>
