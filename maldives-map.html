@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>马尔代夫度假村 · Maldives Resorts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,500&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#0a1a2a;--ocean:#00d4e8;--gold:#c8a84c;--coral:#e8826a;--cream:#fdf8f0;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--deep);font-family:'Noto Sans SC',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+#header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 28px;display:flex;align-items:center;gap:16px;background:linear-gradient(to bottom,rgba(10,26,42,0.95),transparent);}
+.back-btn{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:7px 16px;border-radius:24px;font-size:12px;letter-spacing:2px;text-decoration:none;font-family:'Noto Sans SC',sans-serif;transition:background 0.2s;backdrop-filter:blur(8px);}
+.back-btn:hover{background:rgba(255,255,255,0.22);}
+.header-title{font-family:'Ma Shan Zheng',cursive;font-size:20px;color:#fff;letter-spacing:3px;}
+.header-sub{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(255,255,255,0.5);letter-spacing:2px;margin-left:auto;}
+
+#map-wrapper{position:relative;width:100%;margin-top:60px;}
+#map-img{width:100%;display:block;user-select:none;-webkit-user-drag:none;}
+
+/* HOTSPOT */
+.hotspot{position:absolute;cursor:pointer;transform:translate(-50%,-50%);z-index:10;}
+.hotspot::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;border:2px solid currentColor;opacity:0;animation:pulseRing 2.5s ease-out infinite;}
+.hotspot::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;border:2px solid currentColor;opacity:0;animation:pulseRing 2.5s ease-out infinite 0.8s;}
+@keyframes pulseRing{0%{width:20px;height:20px;opacity:0.8;}100%{width:60px;height:60px;opacity:0;}}
+.hotspot-dot{width:16px;height:16px;border-radius:50%;background:currentColor;position:relative;z-index:2;box-shadow:0 0 12px currentColor,0 0 24px currentColor;transition:transform 0.3s;animation:dotBreath 3s ease-in-out infinite;}
+@keyframes dotBreath{0%,100%{box-shadow:0 0 8px currentColor,0 0 16px currentColor;}50%{box-shadow:0 0 16px currentColor,0 0 32px currentColor,0 0 48px currentColor;}}
+.hotspot:hover .hotspot-dot{transform:scale(1.3);}
+.hotspot-label{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:rgba(10,26,42,0.92);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;letter-spacing:1px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.25s,transform 0.25s;backdrop-filter:blur(8px);}
+.hotspot-label .en{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(255,255,255,0.45);margin-top:1px;text-align:center;}
+.hotspot:hover .hotspot-label{opacity:1;transform:translateX(-50%) translateY(0);}
+
+.spot-kihavah{color:#00d4e8;}
+.spot-dhigu{color:#4caf50;}
+.spot-havodda{color:#c8a84c;}
+.spot-fino{color:#e8826a;}
+.spot-coming{color:rgba(255,255,255,0.4);}
+
+/* POPUP */
+#popup-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+#popup-overlay.show{display:flex;}
+#popup{background:linear-gradient(135deg,#0a1a2a,#051015);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:36px;width:460px;max-width:90vw;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,0.6);position:relative;}
+#popup-icon{font-size:48px;margin-bottom:16px;}
+#popup-title{font-family:'Ma Shan Zheng',cursive;font-size:26px;color:#fff;letter-spacing:3px;margin-bottom:4px;}
+#popup-title-en{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.4);letter-spacing:2px;margin-bottom:8px;}
+#popup-atoll{font-size:11px;color:var(--ocean);letter-spacing:2px;margin-bottom:20px;}
+#popup-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:2;letter-spacing:0.5px;margin-bottom:28px;}
+.popup-btn{display:inline-block;padding:12px 32px;background:var(--ocean);color:#000;border:none;border-radius:30px;font-size:13px;letter-spacing:2px;font-family:'Noto Sans SC',sans-serif;cursor:pointer;transition:all 0.2s;text-decoration:none;font-weight:500;}
+.popup-btn:hover{opacity:0.85;transform:translateY(-1px);}
+.popup-btn.coming{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.15);cursor:default;}
+.popup-btn.coming:hover{transform:none;opacity:1;}
+#popup-close{position:absolute;top:16px;right:20px;background:none;border:none;color:rgba(255,255,255,0.4);font-size:20px;cursor:pointer;}
+#popup-close:hover{color:#fff;}
+
+/* LEGEND */
+#legend{padding:40px 5vw 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+.legend-item{display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;cursor:pointer;transition:all 0.2s;}
+.legend-item:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.legend-zh{font-size:13px;color:#fff;letter-spacing:1px;}
+.legend-en{font-size:11px;color:rgba(255,255,255,0.35);font-family:'Cormorant Garamond',serif;font-style:italic;}
+.legend-tag{font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.4);letter-spacing:1px;white-space:nowrap;}
+
+#map-footer{padding:24px 5vw;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.25);letter-spacing:2px;}
+.footer-note{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:1px;}
+
+/* 坐标工具 */
+#coord-tool{position:fixed;bottom:80px;right:20px;z-index:200;background:rgba(0,0,0,0.85);color:#fff;padding:12px 16px;border-radius:12px;font-size:13px;font-family:monospace;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);display:none;}
+#coord-display{font-size:16px;color:#4caf50;margin-top:4px;letter-spacing:1px;}
+#edit-toggle{position:fixed;bottom:20px;right:20px;z-index:200;background:rgba(255,150,50,0.9);color:#fff;border:none;padding:10px 18px;border-radius:24px;font-size:12px;cursor:pointer;letter-spacing:1px;font-family:'Noto Sans SC',sans-serif;}
+</style>
+</head>
+<body>
+
+<button id="edit-toggle" onclick="toggleEdit()">📍 坐标模式</button>
+<div id="coord-tool">
+  点击地图获取坐标
+  <div id="coord-display">--</div>
+  <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:6px">复制坐标发给我</div>
+</div>
+
+<div id="header">
+  <a href="maldives.html" class="back-btn">← 马尔代夫</a>
+  <div class="header-title">马尔代夫度假村</div>
+  <div class="header-sub">Select your island · 选择你的岛屿</div>
+</div>
+
+<div id="map-wrapper">
+  <img id="map-img" src="maldives-map.png" alt="马尔代夫度假村地图" onerror="this.src='maldives-map.jpg'">
+
+  <!-- 吉哈瓦 Kihavah -->
+  <div class="hotspot spot-kihavah" style="left:62%;top:38%" onclick="showPopup('kihavah')">
+    <div class="hotspot-dot"></div>
+    <div class="hotspot-label">安纳塔拉吉哈瓦<span class="en">Anantara Kihavah</span></div>
+  </div>
+
+  <!-- 迪古 Dhigu -->
+  <div class="hotspot spot-dhigu" style="left:38%;top:18%" onclick="showPopup('dhigu')">
+    <div class="hotspot-dot"></div>
+    <div class="hotspot-label">安纳塔拉迪古<span class="en">Anantara Dhigu</span></div>
+  </div>
+
+  <!-- NH Havodda -->
+  <div class="hotspot spot-havodda" style="left:20%;top:42%" onclick="showPopup('havodda')">
+    <div class="hotspot-dot"></div>
+    <div class="hotspot-label">NH Havodda<span class="en">NH Collection Havodda</span></div>
+  </div>
+
+  <!-- Avani Fino -->
+  <div class="hotspot spot-fino" style="left:78%;top:72%" onclick="showPopup('fino')">
+    <div class="hotspot-dot"></div>
+    <div class="hotspot-label">Avani Fino<span class="en">Avani Fino Maldives</span></div>
+  </div>
+
+  <!-- Kudadoo - coming -->
+  <div class="hotspot spot-coming" style="left:25%;top:62%" onclick="showPopup('kudadoo')">
+    <div class="hotspot-dot"></div>
+    <div class="hotspot-label">库达杜<span class="en">Kudadoo Private Island</span></div>
+  </div>
+
+  <!-- Kuramathi - coming -->
+  <div class="hotspot spot-coming" style="left:72%;top:18%" onclick="showPopup('kuramathi')">
+    <div class="hotspot-dot"></div>
+    <div class="hotspot-label">库拉玛蒂<span class="en">Kuramathi Maldives</span></div>
+  </div>
+
+  <!-- Niyama - coming -->
+  <div class="hotspot spot-coming" style="left:42%;top:78%" onclick="showPopup('niyama')">
+    <div class="hotspot-dot"></div>
+    <div class="hotspot-label">尼亚玛<span class="en">Niyama Private Islands</span></div>
+  </div>
+
+</div>
+
+<!-- LEGEND -->
+<div id="legend">
+  <div class="legend-item" onclick="showPopup('kihavah')">
+    <div class="legend-dot" style="background:#00d4e8;box-shadow:0 0 8px #00d4e8"></div>
+    <div style="flex:1"><div class="legend-zh">安纳塔拉吉哈瓦</div><div class="legend-en">Anantara Kihavah Maldives Villas</div></div>
+    <span class="legend-tag">已开通</span>
+  </div>
+  <div class="legend-item" onclick="showPopup('dhigu')">
+    <div class="legend-dot" style="background:#4caf50;box-shadow:0 0 8px #4caf50"></div>
+    <div style="flex:1"><div class="legend-zh">安纳塔拉迪古</div><div class="legend-en">Anantara Dhigu Maldives Resort</div></div>
+    <span class="legend-tag">已开通</span>
+  </div>
+  <div class="legend-item" onclick="showPopup('havodda')">
+    <div class="legend-dot" style="background:#c8a84c;box-shadow:0 0 8px #c8a84c"></div>
+    <div style="flex:1"><div class="legend-zh">NH梦幻岛</div><div class="legend-en">NH Collection Havodda Resort</div></div>
+    <span class="legend-tag">已开通</span>
+  </div>
+  <div class="legend-item" onclick="showPopup('fino')">
+    <div class="legend-dot" style="background:#e8826a;box-shadow:0 0 8px #e8826a"></div>
+    <div style="flex:1"><div class="legend-zh">翡诺Avani</div><div class="legend-en">Avani Fino Maldives Resort</div></div>
+    <span class="legend-tag">已开通</span>
+  </div>
+  <div class="legend-item" onclick="showPopup('kudadoo')">
+    <div class="legend-dot" style="background:rgba(255,255,255,0.3)"></div>
+    <div style="flex:1"><div class="legend-zh">库达杜私人岛</div><div class="legend-en">Kudadoo Maldives Private Island</div></div>
+    <span class="legend-tag">即将上线</span>
+  </div>
+  <div class="legend-item" onclick="showPopup('kuramathi')">
+    <div class="legend-dot" style="background:rgba(255,255,255,0.3)"></div>
+    <div style="flex:1"><div class="legend-zh">库拉玛蒂</div><div class="legend-en">Kuramathi Maldives</div></div>
+    <span class="legend-tag">即将上线</span>
+  </div>
+  <div class="legend-item" onclick="showPopup('niyama')">
+    <div class="legend-dot" style="background:rgba(255,255,255,0.3)"></div>
+    <div style="flex:1"><div class="legend-zh">尼亚玛私人岛</div><div class="legend-en">Niyama Private Islands</div></div>
+    <span class="legend-tag">即将上线</span>
+  </div>
+</div>
+
+<div id="map-footer">
+  <div class="footer-brand">Minor Vacation Club · Maldives</div>
+  <div class="footer-note">点击发光标记探索度假村</div>
+</div>
+
+<!-- POPUP -->
+<div id="popup-overlay" onclick="closePopup(event)">
+  <div id="popup">
+    <button id="popup-close" onclick="closePopup()">✕</button>
+    <div id="popup-icon">🏝</div>
+    <div id="popup-title">度假村</div>
+    <div id="popup-title-en">Resort</div>
+    <div id="popup-atoll">· Maldives ·</div>
+    <div id="popup-desc">精彩内容即将上线</div>
+    <a id="popup-action" href="#" class="popup-btn">探索此岛 →</a>
+  </div>
+</div>
+
+<script>
+const spots={
+  kihavah:{icon:'🤿',zh:'安纳塔拉吉哈瓦',en:'Anantara Kihavah Maldives Villas',atoll:'Baa Atoll · 马累环礁',desc:'坐拥全球最壮观的珊瑚礁之一，水下餐厅、水上屋别墅，每一刻都是奢华的极致体验。',page:'kihavah.html',ready:true},
+  dhigu:{icon:'🌅',zh:'安纳塔拉迪古',en:'Anantara Dhigu Maldives Resort',atoll:'South Malé Atoll · 南马累环礁',desc:'马累环礁上的豪华水疗海滩度假村，含早晚餐，水上别墅直连印度洋，是浪漫旅行的完美选择。',page:'dhigu.html',ready:true},
+  havodda:{icon:'🌴',zh:'NH梦幻岛',en:'NH Collection Maldives Havodda Resort',atoll:'South Malé Atoll · 南马累环礁',desc:'梦幻般的岛屿风光，豪华水疗海景房含早晚餐，私密海湾与壮美珊瑚礁，让每位客人沉浸于天堂之中。',page:'havodda.html',ready:true},
+  fino:{icon:'🐠',zh:'翡诺Avani马尔代夫',en:'Avani Fino Maldives Resort',atoll:'South Malé Atoll · 南马累环礁',desc:'坐落于原始生态岛屿之上，配备现代化设施，提供水上活动、水疗与美食体验，让你的马尔代夫之旅难忘非凡。',page:'fino.html',ready:true},
+  kudadoo:{icon:'🏝',zh:'库达杜私人岛',en:'Kudadoo Maldives Private Island',atoll:'Lhaviyani Atoll',desc:'顶级私人岛屿度假村，极致的私密与个性化服务体验。',page:'kudadoo.html',ready:false},
+  kuramathi:{icon:'🌊',zh:'库拉玛蒂',en:'Kuramathi Maldives',atoll:'Rasdhoo Atoll',desc:'岛屿度假胜地，含浮潜体验出海，丰富活动与田园生活的完美结合。',page:'kuramathi.html',ready:false},
+  niyama:{icon:'✨',zh:'尼亚玛私人岛',en:'Niyama Private Islands',atoll:'Dhaalu Atoll',desc:'马尔代夫顶级度假胜地，极致的私密和贴心的个性化服务。',page:'niyama.html',ready:false},
+};
+
+function showPopup(id){
+  const s=spots[id];if(!s)return;
+  document.getElementById('popup-icon').textContent=s.icon;
+  document.getElementById('popup-title').textContent=s.zh;
+  document.getElementById('popup-title-en').textContent=s.en;
+  document.getElementById('popup-atoll').textContent='· '+s.atoll+' ·';
+  document.getElementById('popup-desc').textContent=s.desc;
+  const btn=document.getElementById('popup-action');
+  if(s.ready){btn.href=s.page;btn.textContent='探索此岛 →';btn.className='popup-btn';}
+  else{btn.href='#';btn.textContent='✦ 敬请期待';btn.className='popup-btn coming';btn.onclick=e=>e.preventDefault();}
+  document.getElementById('popup-overlay').classList.add('show');
+}
+function closePopup(e){
+  if(!e||e.target===document.getElementById('popup-overlay')||e.currentTarget===document.getElementById('popup-close'))
+    document.getElementById('popup-overlay').classList.remove('show');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('popup-overlay').classList.remove('show');});
+
+let editMode=false;
+function toggleEdit(){
+  editMode=!editMode;
+  const tool=document.getElementById('coord-tool');
+  const btn=document.getElementById('edit-toggle');
+  tool.style.display=editMode?'block':'none';
+  btn.style.background=editMode?'rgba(255,50,50,0.9)':'rgba(255,150,50,0.9)';
+  btn.textContent=editMode?'❌ 退出坐标模式':'📍 坐标模式';
+  document.getElementById('map-img').style.cursor=editMode?'crosshair':'default';
+}
+document.getElementById('map-img').addEventListener('click',function(e){
+  if(!editMode)return;
+  const rect=this.getBoundingClientRect();
+  const x=((e.clientX-rect.left)/rect.width*100).toFixed(1);
+  const y=((e.clientY-rect.top)/rect.height*100).toFixed(1);
+  document.getElementById('coord-display').textContent=`left:${x}%, top:${y}%`;
+});
+</script>
+</body>
+</html>
