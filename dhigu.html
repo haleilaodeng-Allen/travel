@@ -108,9 +108,30 @@ body{background:var(--sand);color:var(--text);font-family:'Noto Sans SC',sans-se
   <div class="video-section reveal">
     <div class="section-head" style="margin-top:48px"><div class="section-line"></div><span class="section-zh">视频</span><span class="section-en">Videos</span></div>
     <div class="video-grid">
-      <div class="video-card" onclick="openVideo('dhigu_video1')"><div style="text-align:center;color:#fff"><div style="font-size:36px;margin-bottom:8px">▶</div><div style="font-size:11px;letter-spacing:2px;opacity:0.5">VIDEO 01</div></div></div>
-      <div class="video-card" onclick="openVideo('dhigu_video2')"><div style="text-align:center;color:#fff"><div style="font-size:36px;margin-bottom:8px">▶</div><div style="font-size:11px;letter-spacing:2px;opacity:0.5">VIDEO 02</div></div></div>
-      <div class="video-card" onclick="openVideo('dhigu_video3')"><div style="text-align:center;color:#fff"><div style="font-size:36px;margin-bottom:8px">▶</div><div style="font-size:11px;letter-spacing:2px;opacity:0.5">VIDEO 03</div></div></div>
+      <div class="video-card" onclick="openVideo('dhigu_video1')" style="position:relative;overflow:hidden;">
+        <video src="dhigu_video1.mp4" style="width:100%;height:100%;object-fit:cover;pointer-events:none;" preload="metadata" muted playsinline></video>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);">
+          <div style="width:48px;height:48px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <div style="width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid #1a1a2a;margin-left:4px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="video-card" onclick="openVideo('dhigu_video2')" style="position:relative;overflow:hidden;">
+        <video src="dhigu_video2.mp4" style="width:100%;height:100%;object-fit:cover;pointer-events:none;" preload="metadata" muted playsinline></video>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);">
+          <div style="width:48px;height:48px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <div style="width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid #1a1a2a;margin-left:4px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="video-card" onclick="openVideo('dhigu_video3')" style="position:relative;overflow:hidden;">
+        <video src="dhigu_video3.mp4" style="width:100%;height:100%;object-fit:cover;pointer-events:none;" preload="metadata" muted playsinline></video>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);">
+          <div style="width:48px;height:48px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <div style="width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid #1a1a2a;margin-left:4px;"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
