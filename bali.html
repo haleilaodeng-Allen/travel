@@ -172,18 +172,20 @@ body{background:var(--sand);color:var(--text);font-family:'Noto Sans SC',sans-se
     <span class="section-en">Videos</span>
   </div>
   <div class="photo-grid reveal">
-    <div class="photo-item" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;cursor:pointer" onclick="openVideoPlayer('bali_video1')">
-      <div style="text-align:center;color:#fff">
-        <div style="font-size:48px;margin-bottom:12px">▶</div>
-        <div style="font-size:13px;letter-spacing:2px;opacity:0.7">巴厘岛 · 精选影像</div>
-        <div style="font-size:11px;opacity:0.4;margin-top:4px;font-family:'Cormorant Garamond',serif;font-style:italic">Click to play</div>
+    <div class="photo-item" style="position:relative;overflow:hidden;cursor:pointer;" onclick="openVideoPlayer('bali_video1')">
+      <video src="bali_video1.mp4" style="width:100%;height:100%;object-fit:cover;pointer-events:none;" preload="metadata" muted playsinline></video>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);">
+        <div style="width:48px;height:48px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <div style="width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid #1a1a2a;margin-left:4px;"></div>
+        </div>
       </div>
     </div>
-    <div class="photo-item" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;cursor:pointer" onclick="openVideoPlayer('bali_video2')">
-      <div style="text-align:center;color:#fff">
-        <div style="font-size:48px;margin-bottom:12px">▶</div>
-        <div style="font-size:13px;letter-spacing:2px;opacity:0.7">巴厘岛 · 风光记录</div>
-        <div style="font-size:11px;opacity:0.4;margin-top:4px;font-family:'Cormorant Garamond',serif;font-style:italic">Click to play</div>
+    <div class="photo-item" style="position:relative;overflow:hidden;cursor:pointer;" onclick="openVideoPlayer('bali_video2')">
+      <video src="bali_video2.mp4" style="width:100%;height:100%;object-fit:cover;pointer-events:none;" preload="metadata" muted playsinline></video>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);">
+        <div style="width:48px;height:48px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <div style="width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid #1a1a2a;margin-left:4px;"></div>
+        </div>
       </div>
     </div>
     <div class="photo-item" onclick="openLightboxAuto('bali6')">
