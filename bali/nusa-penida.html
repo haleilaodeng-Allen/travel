@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>努沙佩尼达 · Bali</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+#hero::before{background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,transparent 30%,transparent 50%,rgba(0,0,0,0.75) 100%);}
+.section-line{background:#00b8d4;}
+.guide-card::before{background:#00b8d4;}
+#page-footer{background:#1a2a1a;}
+</style>
+</head>
+<body>
+<nav id="top-nav"></nav>
+<section id="hero">
+  <div id="media-container">
+    <div class="media-slide active"><img data-src="assets/images/nusa-penida1" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/nusa-penida2" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/nusa-penida3" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/nusa-penida4" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/nusa-penida5" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/nusa-penida6" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/nusa-penida7" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/nusa-penida8" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/nusa-penida9" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/nusa-penida10" alt=""></div>
+  </div>
+  <div id="media-dots">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div id="hero-content">
+    <div class="dest-eyebrow">Bali · 巴厘岛探索</div>
+    <div class="dest-name-zh">努沙佩尼达</div>
+    <div class="dest-name-en">Nusa Penida · Kelingking Beach</div>
+    <div class="dest-tagline">悬崖之下的秘密天堂，印度洋最壮观的海岸线<em>Hidden paradise beneath dramatic cliffs, Bali's most spectacular coastline</em></div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span>Explore</span></div>
+</section>
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%"><path d="M0,40 C240,0 480,60 720,30 C960,0 1200,50 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
+<section id="gallery">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">影像集</span><span class="section-en">Gallery</span></div>
+  <div class="photo-grid reveal">
+    <div class="photo-item" onclick="openLightbox('assets/images/nusa-penida1')"><img data-src="assets/images/nusa-penida1" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/nusa-penida2')"><img data-src="assets/images/nusa-penida2" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/nusa-penida3')"><img data-src="assets/images/nusa-penida3" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/nusa-penida4')"><img data-src="assets/images/nusa-penida4" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/nusa-penida5')"><img data-src="assets/images/nusa-penida5" alt=""><div class="photo-overlay"></div></div>
+  </div>
+  <div class="section-head reveal" style="margin-top:48px"><div class="section-line"></div><span class="section-zh">视频</span><span class="section-en">Videos</span></div>
+  <div class="video-grid reveal">
+    <div class="video-card" onclick="openVideo('assets/videos/nusa-penida_video1')"><video data-src="assets/videos/nusa-penida_video1" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/nusa-penida_video2')"><video data-src="assets/videos/nusa-penida_video2" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/nusa-penida_video3')"><video data-src="assets/videos/nusa-penida_video3" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/nusa-penida_video4')"><video data-src="assets/videos/nusa-penida_video4" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/nusa-penida_video5')"><video data-src="assets/videos/nusa-penida_video5" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+  </div>
+</section>
+<section id="guide">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">探索指南</span><span class="section-en">Explorer's Guide</span></div>
+  <div class="guide-grid">
+    <div class="guide-card reveal">
+      <div class="card-icon">🦕</div>
+      <div class="card-title-zh">Kelingking恐龙湾</div>
+      <div class="card-title-en">Kelingking Beach</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>形似恐龙头的悬崖，网红打卡地<span class="en">Dinosaur-shaped cliff · Instagram icon</span></li>
+        <li>悬崖观景台俯瞰绝美海湾<span class="en">Clifftop viewpoint · Breathtaking bay</span></li>
+        <li>下到沙滩需徒步45分钟<span class="en">45min steep hike down to beach</span></li>
+        <li>白沙滩几乎无人，极度私密<span class="en">Nearly deserted white sand beach</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🤿</div>
+      <div class="card-title-zh">水上活动</div>
+      <div class="card-title-en">Water Activities</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>与蝠鲼同游，世界顶级体验<span class="en">Swimming with manta rays · World-class</span></li>
+        <li>水晶湾浮潜，能见度极高<span class="en">Crystal Bay snorkeling · Exceptional visibility</span></li>
+        <li>天使岩浮潜，珊瑚礁丰富<span class="en">Angel's Billabong · Rich coral reefs</span></li>
+        <li>破碎海滩天然泳池<span class="en">Broken Beach natural pool</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🚢</div>
+      <div class="card-title-zh">出行方式</div>
+      <div class="card-title-en">Getting There</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>从桑尼亚码头乘快艇约45分钟<span class="en">Fast boat from Sanur ~45min</span></li>
+        <li>建议包车游览，路况复杂<span class="en">Private driver recommended · Rough roads</span></li>
+        <li>一日游可覆盖3-4个景点<span class="en">3-4 spots possible in one day tour</span></li>
+        <li>旱季出行，雨季浪大不建议<span class="en">Dry season only · Rough seas in wet season</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay2">
+      <div class="card-icon">💡</div>
+      <div class="card-title-zh">实用贴士</div>
+      <div class="card-title-en">Tips</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>提前预订快艇，旺季紧张<span class="en">Book fast boat early · Busy in peak season</span></li>
+        <li>带足防晒，岛上日照强烈<span class="en">Strong sun · Sunscreen essential</span></li>
+        <li>自带饮水和食物，岛上消费贵<span class="en">Bring food & water · Expensive on island</span></li>
+        <li>手机信号差，提前下载离线地图<span class="en">Poor signal · Download offline maps</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<footer id="page-footer"><div class="footer-brand">Minor Vacation Club · Bali</div><div class="footer-dest">努沙佩尼达 · BALI</div></footer>
+<div id="lightbox" onclick="closeLightbox()"><button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button><div id="lightbox-content"></div></div>
+<button id="notes-toggle">🔒</button>
+<div id="notes-panel">
+  <div id="notes-password-screen"><p>输入密码查看笔记</p><input type="password" id="notes-pw-input" placeholder="••••••" maxlength="20"><button id="notes-pw-btn">确认</button></div>
+  <div id="notes-content"><textarea id="notes-textarea" placeholder="在这里写下你的销售笔记..."></textarea><div class="notes-footer"><span class="notes-save" id="notes-save-status"></span><button class="notes-lock" id="notes-lock-btn">🔒 锁定</button></div></div>
+</div>
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>buildTopNav('bali');initHiddenNotes('nusa-penida','allen');</script>
+</body>
+</html>
