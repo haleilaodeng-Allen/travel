@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>乌鲁瓦图 · Bali</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+#hero::before{background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,transparent 30%,transparent 50%,rgba(0,0,0,0.75) 100%);}
+.section-line{background:#3a9db8;}
+.guide-card::before{background:#3a9db8;}
+#page-footer{background:#1a2a1a;}
+</style>
+</head>
+<body>
+
+<nav id="top-nav"></nav>
+
+<section id="hero">
+  <div id="media-container">
+    <div class="media-slide active"><img data-src="assets/images/uluwatu1" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uluwatu2" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uluwatu3" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uluwatu4" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uluwatu5" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uluwatu6" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uluwatu7" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uluwatu8" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uluwatu9" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uluwatu10" alt=""></div>
+  </div>
+  <div id="media-dots">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div id="hero-content">
+    <div class="dest-eyebrow">Bali · 巴厘岛探索</div>
+    <div class="dest-name-zh">乌鲁瓦图</div>
+    <div class="dest-name-en">Uluwatu Temple & Cliffs</div>
+    <div class="dest-tagline">悬崖之巅，与印度洋的壮阔相遇<em>Where sacred cliffs meet the endless Indian Ocean</em></div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span>Explore</span></div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%">
+    <path d="M0,40 C240,0 480,60 720,30 C960,0 1200,50 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<section id="gallery">
+  <div class="section-head reveal">
+    <div class="section-line"></div>
+    <span class="section-zh">影像集</span>
+    <span class="section-en">Gallery</span>
+  </div>
+  <div class="photo-grid reveal">
+    <div class="photo-item" onclick="openLightbox('assets/images/uluwatu1')"><img data-src="assets/images/uluwatu1" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/uluwatu2')"><img data-src="assets/images/uluwatu2" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/uluwatu3')"><img data-src="assets/images/uluwatu3" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/uluwatu4')"><img data-src="assets/images/uluwatu4" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/uluwatu5')"><img data-src="assets/images/uluwatu5" alt=""><div class="photo-overlay"></div></div>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:48px">
+    <div class="section-line"></div>
+    <span class="section-zh">视频</span>
+    <span class="section-en">Videos</span>
+  </div>
+  <div class="video-grid reveal">
+    <div class="video-card" onclick="openVideo('assets/videos/uluwatu_video1')">
+      <video data-src="assets/videos/uluwatu_video1" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/uluwatu_video2')">
+      <video data-src="assets/videos/uluwatu_video2" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/uluwatu_video3')">
+      <video data-src="assets/videos/uluwatu_video3" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/uluwatu_video4')">
+      <video data-src="assets/videos/uluwatu_video4" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/uluwatu_video5')">
+      <video data-src="assets/videos/uluwatu_video5" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="guide">
+  <div class="section-head reveal">
+    <div class="section-line"></div>
+    <span class="section-zh">探索指南</span>
+    <span class="section-en">Explorer's Guide</span>
+  </div>
+  <div class="guide-grid">
+    <div class="guide-card reveal">
+      <div class="card-icon">🌊</div>
+      <div class="card-title-zh">必游体验</div>
+      <div class="card-title-en">Must Experience</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>乌鲁瓦图神庙，70米悬崖之上<span class="en">Uluwatu Temple · 70m clifftop</span></li>
+        <li>日落时分克差火舞，震撼人心<span class="en">Sunset Kecak fire dance · Stunning</span></li>
+        <li>单峰驼海滩，世界顶级冲浪点<span class="en">Single Fin · World-class surf spot</span></li>
+        <li>悬崖酒吧看日落，鸡尾酒配晚霞<span class="en">Cliff bar sunset cocktails</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🏄</div>
+      <div class="card-title-zh">冲浪天堂</div>
+      <div class="card-title-en">Surf Paradise</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>巴厘岛最著名的冲浪胜地<span class="en">Bali's most famous surf destination</span></li>
+        <li>适合中高级冲浪者<span class="en">Best for intermediate+ surfers</span></li>
+        <li>Padang Padang沙滩，电影取景地<span class="en">Padang Padang · Film location</span></li>
+        <li>冲浪课程可在附近预订<span class="en">Surf lessons available nearby</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🌅</div>
+      <div class="card-title-zh">最佳时段</div>
+      <div class="card-title-en">Best Time</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>日落前1小时到达最佳<span class="en">Arrive 1hr before sunset</span></li>
+        <li>火舞表演约18:00开始<span class="en">Kecak dance starts ~6PM</span></li>
+        <li>全年皆宜，旱季更佳<span class="en">Year-round · Dry season best</span></li>
+        <li>周末人多，建议提前购票<span class="en">Book tickets early on weekends</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay2">
+      <div class="card-icon">💡</div>
+      <div class="card-title-zh">实用贴士</div>
+      <div class="card-title-en">Tips</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>进庙需围沙龙布，入口有借<span class="en">Sarong required · Available at gate</span></li>
+        <li>小心猴子，不要露出食物<span class="en">Beware monkeys · Hide food</span></li>
+        <li>从库塔约40分钟车程<span class="en">~40min drive from Kuta</span></li>
+        <li>神庙门票约50,000印尼盾<span class="en">Entry ~IDR 50,000 per person</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer id="page-footer">
+  <div class="footer-brand">Minor Vacation Club · Bali</div>
+  <div class="footer-dest">乌鲁瓦图 · BALI</div>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button>
+  <div id="lightbox-content"></div>
+</div>
+
+<button id="notes-toggle">🔒</button>
+<div id="notes-panel">
+  <div id="notes-password-screen">
+    <p>输入密码查看笔记</p>
+    <input type="password" id="notes-pw-input" placeholder="••••••" maxlength="20">
+    <button id="notes-pw-btn">确认</button>
+  </div>
+  <div id="notes-content">
+    <textarea id="notes-textarea" placeholder="在这里写下你的销售笔记、景点知识、客人常见问题..."></textarea>
+    <div class="notes-footer">
+      <span class="notes-save" id="notes-save-status"></span>
+      <button class="notes-lock" id="notes-lock-btn">🔒 锁定</button>
+    </div>
+  </div>
+</div>
+
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>
+  buildTopNav('bali');
+  initHiddenNotes('uluwatu', 'allen');
+</script>
+</body>
+</html>
