@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>乌布 · Bali</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+#hero::before{background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,transparent 30%,transparent 50%,rgba(0,0,0,0.75) 100%);}
+.section-line{background:#4caf50;}
+.guide-card::before{background:#4caf50;}
+#page-footer{background:#1a2a1a;}
+</style>
+</head>
+<body>
+
+<nav id="top-nav"></nav>
+
+<section id="hero">
+  <div id="media-container">
+    <div class="media-slide active"><img data-src="assets/images/ubud1" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/ubud2" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/ubud3" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/ubud4" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/ubud5" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/ubud6" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/ubud7" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/ubud8" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/ubud9" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/ubud10" alt=""></div>
+  </div>
+  <div id="media-dots">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div id="hero-content">
+    <div class="dest-eyebrow">Bali · 巴厘岛探索</div>
+    <div class="dest-name-zh">乌布</div>
+    <div class="dest-name-en">Ubud · Cultural Heart of Bali</div>
+    <div class="dest-tagline">艺术与自然的心脏，慢下来感受巴厘灵魂<em>Where art, nature and spirituality converge in perfect harmony</em></div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span>Explore</span></div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%">
+    <path d="M0,40 C240,0 480,60 720,30 C960,0 1200,50 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<section id="gallery">
+  <div class="section-head reveal">
+    <div class="section-line"></div>
+    <span class="section-zh">影像集</span>
+    <span class="section-en">Gallery</span>
+  </div>
+  <div class="photo-grid reveal">
+    <div class="photo-item" onclick="openLightbox('assets/images/ubud1')"><img data-src="assets/images/ubud1" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/ubud2')"><img data-src="assets/images/ubud2" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/ubud3')"><img data-src="assets/images/ubud3" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/ubud4')"><img data-src="assets/images/ubud4" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/ubud5')"><img data-src="assets/images/ubud5" alt=""><div class="photo-overlay"></div></div>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:48px">
+    <div class="section-line"></div>
+    <span class="section-zh">视频</span>
+    <span class="section-en">Videos</span>
+  </div>
+  <div class="video-grid reveal">
+    <div class="video-card" onclick="openVideo('assets/videos/ubud_video1')">
+      <video data-src="assets/videos/ubud_video1" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/ubud_video2')">
+      <video data-src="assets/videos/ubud_video2" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/ubud_video3')">
+      <video data-src="assets/videos/ubud_video3" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/ubud_video4')">
+      <video data-src="assets/videos/ubud_video4" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/ubud_video5')">
+      <video data-src="assets/videos/ubud_video5" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="guide">
+  <div class="section-head reveal">
+    <div class="section-line"></div>
+    <span class="section-zh">探索指南</span>
+    <span class="section-en">Explorer's Guide</span>
+  </div>
+  <div class="guide-grid">
+    <div class="guide-card reveal">
+      <div class="card-icon">🌾</div>
+      <div class="card-title-zh">必游景点</div>
+      <div class="card-title-en">Must See</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>德格拉朗梯田，清晨薄雾最美<span class="en">Tegallalang · Best at dawn</span></li>
+        <li>圣猴森林，与猴同行<span class="en">Sacred Monkey Forest Sanctuary</span></li>
+        <li>乌布皇宫，传统巴厘建筑<span class="en">Ubud Palace · Traditional architecture</span></li>
+        <li>蒂尔塔圣泉，净化圣地<span class="en">Tirta Empul · Sacred springs</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🍜</div>
+      <div class="card-title-zh">必吃推荐</div>
+      <div class="card-title-en">Must Try</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>乌布市场鲜榨果汁<span class="en">Fresh juice at Ubud Market</span></li>
+        <li>烤猪饭 Babi Guling，名不虚传<span class="en">Babi Guling · Iconic roast pork</span></li>
+        <li>稻田边咖啡厅，绝美景色<span class="en">Rice field café with stunning views</span></li>
+        <li>猫屎咖啡 Kopi Luwak<span class="en">Kopi Luwak · World's unique coffee</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🎭</div>
+      <div class="card-title-zh">文化体验</div>
+      <div class="card-title-en">Culture</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>克差火舞表演，每晚6:30<span class="en">Kecak dance · Daily 6:30PM</span></li>
+        <li>巴厘岛烹饪课，亲手做美食<span class="en">Balinese cooking class</span></li>
+        <li>手工艺市场，银器木雕<span class="en">Handicraft market · Silver & wood</span></li>
+        <li>SPA疗愈，传统巴厘按摩<span class="en">Traditional Balinese massage</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay2">
+      <div class="card-icon">💡</div>
+      <div class="card-title-zh">实用贴士</div>
+      <div class="card-title-en">Tips</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>进庙需围沙龙布，景区有借<span class="en">Sarong required at temples</span></li>
+        <li>租摩托或包车游览更自由<span class="en">Motorbike or private driver</span></li>
+        <li>清晨梯田人少，光线最美<span class="en">Visit rice fields early morning</span></li>
+        <li>乌布市场讨价还价是常态<span class="en">Bargaining expected at market</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer id="page-footer">
+  <div class="footer-brand">Minor Vacation Club · Bali</div>
+  <div class="footer-dest">乌布 · BALI</div>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button>
+  <div id="lightbox-content"></div>
+</div>
+
+<button id="notes-toggle">🔒</button>
+<div id="notes-panel">
+  <div id="notes-password-screen">
+    <p>输入密码查看笔记</p>
+    <input type="password" id="notes-pw-input" placeholder="••••••" maxlength="20">
+    <button id="notes-pw-btn">确认</button>
+  </div>
+  <div id="notes-content">
+    <textarea id="notes-textarea" placeholder="在这里写下你的销售笔记、景点知识、客人常见问题..."></textarea>
+    <div class="notes-footer">
+      <span class="notes-save" id="notes-save-status"></span>
+      <button class="notes-lock" id="notes-lock-btn">🔒 锁定</button>
+    </div>
+  </div>
+</div>
+
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>
+  buildTopNav('bali');
+  initHiddenNotes('ubud', 'allen');
+</script>
+</body>
+</html>
