@@ -17,8 +17,11 @@ const DESTINATIONS = [
     color: '#4caf50',
     regions: [
       { id: 'uluwatu', name: '乌鲁瓦图', nameEn: 'Uluwatu', page: 'bali/uluwatu.html' },
-      { id: 'ubud', name: '乌布', nameEn: 'Ubud', page: 'bali/ubud.html' },
       { id: 'mount-batur', name: '巴杜尔火山', nameEn: 'Mount Batur', page: 'bali/mount-batur.html' },
+      { id: 'ubud', name: '乌布', nameEn: 'Ubud', page: 'bali/ubud.html' },
+      { id: 'tanah-lot', name: '海神庙', nameEn: 'Tanah Lot', page: 'bali/tanah-lot.html' },
+      { id: 'nusa-penida', name: '努沙佩尼达', nameEn: 'Nusa Penida', page: 'bali/nusa-penida.html' },
+      { id: 'tegallalang', name: '德格拉朗梯田', nameEn: 'Tegallalang', page: 'bali/tegallalang.html' },
     ]
   },
   {
