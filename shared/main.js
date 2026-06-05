@@ -31,30 +31,16 @@ function initSlideshow() {
   const dots = document.querySelectorAll('.dot');
   if (!slides.length) return;
 
-  // 隐藏没有内容的slides
-  slides.forEach(slide => {
-    const img = slide.querySelector('img');
-    const video = slide.querySelector('video');
-    if (img) {
-      img.addEventListener('error', () => {
-        slide.style.display = 'none';
-      });
-    }
-  });
-
   let current = 0;
   let timer = null;
-  const visibleSlides = () => Array.from(slides).filter(s => s.style.display !== 'none');
 
   function goToSlide(n) {
-    const visible = visibleSlides();
-    if (!visible.length) return;
     slides[current]?.classList.remove('active');
     dots[current]?.classList.remove('active');
-    current = n % visible.length;
-    visible[current]?.classList.add('active');
+    current = n % slides.length;
+    slides[current]?.classList.add('active');
     dots[current]?.classList.add('active');
-    const vid = visible[current]?.querySelector('video');
+    const vid = slides[current]?.querySelector('video');
     if (vid) { vid.currentTime = 0; vid.play(); }
     resetTimer();
   }
@@ -64,14 +50,14 @@ function initSlideshow() {
     timer = setInterval(() => goToSlide(current + 1), 5500);
   }
 
-  // 绑定dots
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => goToSlide(i));
   });
 
+  slides[0].classList.add('active');
+  dots[0]?.classList.add('active');
   resetTimer();
 
-  // 暴露给全局
   window.goToSlide = goToSlide;
 }
 
@@ -87,6 +73,7 @@ function initAutoImg() {
       el.src = base + '.' + exts[i];
       el.onerror = () => { i++; tryNext(); };
       el.onload = () => { el.onerror = null; };
+      i++;
     }
     tryNext();
   });
