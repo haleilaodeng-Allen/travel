@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>马尔代夫 · Maldives</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+#hero::before{background:linear-gradient(to bottom,rgba(0,26,42,0.1) 0%,transparent 30%,transparent 55%,rgba(0,26,42,0.65) 100%);}
+#map-entry{background:#0a1a2a;}
+.section-line{background:#00d4e8;}
+.guide-card::before{background:#00d4e8;}
+#page-footer{background:#0a1a2a;}
+</style>
+</head>
+<body>
+<nav id="top-nav"></nav>
+<section id="hero">
+  <div id="media-container">
+    <div class="media-slide active"><img data-src="assets/images/maldives1" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/maldives2" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/maldives3" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/maldives4" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/maldives5" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/maldives6" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/maldives7" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/maldives8" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/maldives9" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/maldives10" alt=""></div>
+  </div>
+  <div id="media-dots">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div id="hero-content">
+    <div class="dest-eyebrow">Anantara Destinations · 安纳塔拉目的地</div>
+    <div class="dest-name-zh">马尔代夫</div>
+    <div class="dest-name-en">Maldives</div>
+    <div class="dest-tagline">世界尽头的蓝色天堂，每一刻都是奢华<em>Paradise at the edge of the world, where every moment is luxury</em></div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span>Explore</span></div>
+</section>
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%"><path d="M0,40 C240,0 480,60 720,30 C960,0 1200,50 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
+<section id="gallery">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">影像集</span><span class="section-en">Gallery</span></div>
+  <div class="photo-grid reveal">
+    <div class="photo-item" onclick="openLightbox('assets/images/maldives1')"><img data-src="assets/images/maldives1" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/maldives2')"><img data-src="assets/images/maldives2" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/maldives3')"><img data-src="assets/images/maldives3" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/maldives4')"><img data-src="assets/images/maldives4" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/maldives5')"><img data-src="assets/images/maldives5" alt=""><div class="photo-overlay"></div></div>
+  </div>
+  <div class="section-head reveal" style="margin-top:48px"><div class="section-line"></div><span class="section-zh">视频</span><span class="section-en">Videos</span></div>
+  <div class="video-grid reveal">
+    <div class="video-card" onclick="openVideo('assets/videos/maldives_video1')"><video data-src="assets/videos/maldives_video1" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/maldives_video2')"><video data-src="assets/videos/maldives_video2" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/maldives_video3')"><video data-src="assets/videos/maldives_video3" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/maldives_video4')"><video data-src="assets/videos/maldives_video4" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/maldives_video5')"><video data-src="assets/videos/maldives_video5" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+  </div>
+</section>
+<section id="map-entry">
+  <div class="map-bg" style="background-image:url('assets/images/maldives-map.png')"></div>
+  <div class="map-content">
+    <div class="map-label" style="color:#00d4e8">Select Your Island · 选择你的岛屿</div>
+    <div class="map-title">马尔代夫度假村</div>
+    <div class="map-subtitle">Discover your perfect island escape</div>
+    <a href="map.html" class="map-btn" style="background:#00d4e8;color:#000;font-weight:500;box-shadow:0 8px 24px rgba(0,212,232,0.3)">探索度假村 →</a>
+  </div>
+</section>
+<section id="guide">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">旅行指南</span><span class="section-en">Travel Guide</span></div>
+  <div class="guide-grid">
+    <div class="guide-card reveal">
+      <div class="card-icon">🌤️</div>
+      <div class="card-title-zh">最佳时节</div><div class="card-title-en">Best Season</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>11月–4月 旱季，阳光充足<span class="en">Nov–Apr · Dry & sunny</span></li>
+        <li>1月–3月 能见度最佳<span class="en">Jan–Mar · Best visibility</span></li>
+        <li>5月–10月 雨季，价格更优<span class="en">May–Oct · Lower prices</span></li>
+        <li>全年水温约28-30°C<span class="en">Year-round water temp 28–30°C</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🤿</div>
+      <div class="card-title-zh">必玩体验</div><div class="card-title-en">Experiences</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>与蝠鲼同游，世界顶级<span class="en">Swimming with manta rays</span></li>
+        <li>水下餐厅用餐，独一无二<span class="en">Underwater restaurant dining</span></li>
+        <li>浮潜珊瑚礁，色彩斑斓<span class="en">Coral reef snorkeling</span></li>
+        <li>日落巡游，看天空变色<span class="en">Sunset dolphin cruise</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🏡</div>
+      <div class="card-title-zh">住宿体验</div><div class="card-title-en">Accommodation</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>水上屋，踏出门即是海<span class="en">Overwater villa · Step into ocean</span></li>
+        <li>海滩别墅，私人沙滩专属<span class="en">Beach villa · Private beach</span></li>
+        <li>管家服务，24小时响应<span class="en">24hr butler service</span></li>
+        <li>无边泳池与印度洋相连<span class="en">Infinity pool · Ocean view</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay2">
+      <div class="card-icon">💡</div>
+      <div class="card-title-zh">出行贴士</div><div class="card-title-en">Tips</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>从马累乘水上飞机或快艇<span class="en">Seaplane or speedboat from Malé</span></li>
+        <li>货币美元，刷卡方便<span class="en">USD accepted · Cards welcome</span></li>
+        <li>提前预订水下餐厅<span class="en">Book underwater restaurant early</span></li>
+        <li>带防晒，岛上日照强烈<span class="en">Strong sun · Sunscreen essential</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<footer id="page-footer"><div class="footer-brand">Minor Vacation Club</div><div class="footer-dest">马尔代夫 · MALDIVES</div></footer>
+<div id="lightbox" onclick="closeLightbox()"><button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button><div id="lightbox-content"></div></div>
+<button id="notes-toggle">🔒</button>
+<div id="notes-panel">
+  <div id="notes-password-screen"><p>输入密码查看笔记</p><input type="password" id="notes-pw-input" placeholder="••••••" maxlength="20"><button id="notes-pw-btn">确认</button></div>
+  <div id="notes-content"><textarea id="notes-textarea" placeholder="在这里写下你的销售笔记..."></textarea><div class="notes-footer"><span class="notes-save" id="notes-save-status"></span><button class="notes-lock" id="notes-lock-btn">🔒 锁定</button></div></div>
+</div>
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>
+buildTopNav('maldives');
+initHiddenNotes('maldives','allen');
+</script>
+</body>
+</html>
