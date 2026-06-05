@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>巴厘岛 · Bali</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+#hero::before{background:linear-gradient(to bottom,rgba(45,74,62,0.1) 0%,transparent 30%,transparent 55%,rgba(45,74,62,0.65) 100%);}
+#map-entry{background:#1a2a1a;}
+.section-line{background:#4caf50;}
+.guide-card:nth-child(1)::before{background:linear-gradient(to right,#a8d8e8,#3a7d6e);}
+.guide-card:nth-child(2)::before{background:linear-gradient(to right,#f4a58a,#e8826a);}
+.guide-card:nth-child(3)::before{background:linear-gradient(to right,#a8d8a8,#3a9d6e);}
+.guide-card:nth-child(4)::before{background:linear-gradient(to right,#f0d080,#e8a840);}
+#page-footer{background:#1a2a1a;}
+</style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav id="top-nav"></nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div id="media-container">
+    <div class="media-slide active"><img data-src="assets/images/bali1" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/bali2" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/bali3" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/bali4" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/bali5" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/bali6" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/bali7" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/bali8" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/bali9" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/bali10" alt=""></div>
+  </div>
+  <div id="media-dots">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div id="hero-content">
+    <div class="dest-eyebrow">Anantara Destinations · 安纳塔拉目的地</div>
+    <div class="dest-name-zh">巴厘岛</div>
+    <div class="dest-name-en">Bali, Indonesia</div>
+    <div class="dest-tagline">众神之岛，每一寸风景都是礼物<em>The Island of Gods, where every view is a gift</em></div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span>Explore</span></div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%">
+    <path d="M0,40 C240,0 480,60 720,30 C960,0 1200,50 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<!-- 影像集 -->
+<section id="gallery">
+  <div class="section-head reveal">
+    <div class="section-line"></div>
+    <span class="section-zh">影像集</span>
+    <span class="section-en">Gallery</span>
+  </div>
+  <div class="photo-grid reveal">
+    <div class="photo-item" onclick="openLightbox('assets/images/bali1')"><img data-src="assets/images/bali1" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/bali2')"><img data-src="assets/images/bali2" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/bali3')"><img data-src="assets/images/bali3" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/bali4')"><img data-src="assets/images/bali4" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/bali5')"><img data-src="assets/images/bali5" alt=""><div class="photo-overlay"></div></div>
+  </div>
+
+  <!-- 视频区域 -->
+  <div class="section-head reveal" style="margin-top:48px">
+    <div class="section-line"></div>
+    <span class="section-zh">视频</span>
+    <span class="section-en">Videos</span>
+  </div>
+  <div class="video-grid reveal">
+    <div class="video-card" onclick="openVideo('assets/videos/bali_video1')">
+      <video data-src="assets/videos/bali_video1" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/bali_video2')">
+      <video data-src="assets/videos/bali_video2" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/bali_video3')">
+      <video data-src="assets/videos/bali_video3" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/bali_video4')">
+      <video data-src="assets/videos/bali_video4" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+    <div class="video-card" onclick="openVideo('assets/videos/bali_video5')">
+      <video data-src="assets/videos/bali_video5" preload="metadata" muted playsinline></video>
+      <div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 探索地图入口 -->
+<section id="map-entry">
+  <div class="map-bg" style="background-image:url('assets/images/bali-map.png')"></div>
+  <div class="map-content">
+    <div class="map-label" style="color:#4caf50">Explore · 深度探索</div>
+    <div class="map-title">巴厘岛景点地图</div>
+    <div class="map-subtitle">Discover every corner of the Island of Gods</div>
+    <a href="map.html" class="map-btn" style="background:#4caf50;color:#fff;box-shadow:0 8px 24px rgba(76,175,80,0.3)">探索地图 →</a>
+  </div>
+</section>
+
+<!-- 旅行指南 -->
+<section id="guide">
+  <div class="section-head reveal">
+    <div class="section-line"></div>
+    <span class="section-zh">旅行指南</span>
+    <span class="section-en">Travel Guide</span>
+  </div>
+  <div class="guide-grid">
+    <div class="guide-card reveal">
+      <div class="card-icon">🌤️</div>
+      <div class="card-title-zh">最佳时节</div>
+      <div class="card-title-en">Best Season</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>4月–10月 旱季，阳光充沛<span class="en">Apr–Oct · Dry & sunny</span></li>
+        <li>7月–8月 旺季，提前预订<span class="en">Jul–Aug · Book early</span></li>
+        <li>11月–3月 雨季，人少价优<span class="en">Nov–Mar · Fewer crowds</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🍜</div>
+      <div class="card-title-zh">必吃推荐</div>
+      <div class="card-title-en">Must Try</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>烤猪 Babi Guling，巴厘名菜<span class="en">Babi Guling · Roast pork</span></li>
+        <li>沙爹 Satay，街头必试<span class="en">Satay · Street food classic</span></li>
+        <li>悬崖餐厅日落晚餐<span class="en">Cliff restaurant at sunset</span></li>
+        <li>乌布市场鲜榨果汁<span class="en">Fresh juice at Ubud Market</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🌊</div>
+      <div class="card-title-zh">必玩体验</div>
+      <div class="card-title-en">Experiences</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>德格拉朗梯田晨雾漫步<span class="en">Tegallalang Rice Terrace</span></li>
+        <li>努沙杜瓦浮潜，珊瑚清澈<span class="en">Nusa Dua snorkeling</span></li>
+        <li>乌鲁瓦图神庙火舞表演<span class="en">Uluwatu Kecak fire dance</span></li>
+        <li>水明漾海滩冲浪体验<span class="en">Seminyak surfing lesson</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay2">
+      <div class="card-icon">💡</div>
+      <div class="card-title-zh">出行贴士</div>
+      <div class="card-title-en">Tips</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>进寺庙需围沙龙布<span class="en">Sarong required at temples</span></li>
+        <li>飞行约3小时（吉隆坡/新加坡）<span class="en">~3hrs from KL / Singapore</span></li>
+        <li>货币印尼盾，机场可换汇<span class="en">IDR · exchange at airport</span></li>
+        <li>建议租车含司机出行<span class="en">Private driver recommended</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer id="page-footer">
+  <div class="footer-brand">Minor Vacation Club</div>
+  <div class="footer-dest">巴厘岛 · BALI</div>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button>
+  <div id="lightbox-content"></div>
+</div>
+
+<!-- 隐藏笔记 -->
+<button id="notes-toggle">🔒</button>
+<div id="notes-panel">
+  <div id="notes-password-screen">
+    <p>输入密码查看笔记</p>
+    <input type="password" id="notes-pw-input" placeholder="••••••" maxlength="20">
+    <button id="notes-pw-btn">确认</button>
+  </div>
+  <div id="notes-content">
+    <textarea id="notes-textarea" placeholder="在这里写下你的销售笔记、景点知识、客人常见问题..."></textarea>
+    <div class="notes-footer">
+      <span class="notes-save" id="notes-save-status"></span>
+      <button class="notes-lock" id="notes-lock-btn">🔒 锁定</button>
+    </div>
+  </div>
+</div>
+
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>
+buildTopNav('bali');
+initHiddenNotes('bali', 'allen');
+
+// 可靠的图片自动识别加载
+(function() {
+  var exts = ['png', 'jpg', 'jpeg', 'webp', 'gif'];
+  
+  function loadImg(el) {
+    var base = el.getAttribute('data-src');
+    if (!base) return;
+    var i = 0;
+    function next() {
+      if (i >= exts.length) return;
+      el.src = base + '.' + exts[i];
+      i++;
+    }
+    el.onerror = next;
+    next();
+  }
+
+  // 页面加载完成后执行
+  window.addEventListener('load', function() {
+    document.querySelectorAll('img[data-src]').forEach(loadImg);
+    
+    // 幻灯片轮播
+    var slides = document.querySelectorAll('.media-slide');
+    var dots = document.querySelectorAll('.dot');
+    var cur = 0;
+    
+    function goTo(n) {
+      slides[cur].classList.remove('active');
+      if(dots[cur]) dots[cur].classList.remove('active');
+      cur = n % slides.length;
+      slides[cur].classList.add('active');
+      if(dots[cur]) dots[cur].classList.add('active');
+    }
+    
+    dots.forEach(function(dot, i) {
+      dot.onclick = function() { goTo(i); clearInterval(t); t = setInterval(function(){goTo(cur+1);}, 5000); };
+    });
+    
+    var t = setInterval(function() { goTo(cur + 1); }, 5000);
+    window.goToSlide = goTo;
+  });
+})();
+</script>
+</body>
+</html>
