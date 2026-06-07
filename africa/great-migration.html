@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>动物大迁徙 · Africa</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+#hero::before{background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,transparent 30%,transparent 50%,rgba(0,0,0,0.75) 100%);}
+.section-line{background:#e8826a;}
+.guide-card::before{background:#e8826a;}
+#page-footer{background:#2a1a0a;}
+</style>
+</head>
+<body>
+<nav id="top-nav"></nav>
+<section id="hero">
+  <div id="media-container">
+    <div class="media-slide active"><img data-src="assets/images/great-migration1" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/great-migration2" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/great-migration3" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/great-migration4" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/great-migration5" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/great-migration6" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/great-migration7" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/great-migration8" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/great-migration9" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/great-migration10" alt=""></div>
+  </div>
+  <div id="media-dots">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div id="hero-content">
+    <div class="dest-eyebrow">Africa · 非洲探索</div>
+    <div class="dest-name-zh">动物大迁徙</div>
+    <div class="dest-name-en">The Great Migration</div>
+    <div class="dest-tagline">百万角马横渡马拉河，地球上最壮观的生命奇迹<em>Millions of wildebeest crossing the Mara, Earth's greatest wildlife spectacle</em></div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span>Explore</span></div>
+</section>
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%"><path d="M0,40 C240,0 480,60 720,30 C960,0 1200,50 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
+<section id="gallery">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">影像集</span><span class="section-en">Gallery</span></div>
+  <div class="photo-grid reveal">
+    <div class="photo-item" onclick="openLightbox('assets/images/great-migration1')"><img data-src="assets/images/great-migration1" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/great-migration2')"><img data-src="assets/images/great-migration2" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/great-migration3')"><img data-src="assets/images/great-migration3" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/great-migration4')"><img data-src="assets/images/great-migration4" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/great-migration5')"><img data-src="assets/images/great-migration5" alt=""><div class="photo-overlay"></div></div>
+  </div>
+  <div class="section-head reveal" style="margin-top:48px"><div class="section-line"></div><span class="section-zh">视频</span><span class="section-en">Videos</span></div>
+  <div class="video-grid reveal">
+    <div class="video-card" onclick="openVideo('assets/videos/great-migration_video1')"><video data-src="assets/videos/great-migration_video1" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/great-migration_video2')"><video data-src="assets/videos/great-migration_video2" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/great-migration_video3')"><video data-src="assets/videos/great-migration_video3" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/great-migration_video4')"><video data-src="assets/videos/great-migration_video4" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/great-migration_video5')"><video data-src="assets/videos/great-migration_video5" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+  </div>
+</section>
+<section id="guide">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">探索指南</span><span class="section-en">Explorer's Guide</span></div>
+  <div class="guide-grid">
+    <div class="guide-card reveal">
+      <div class="card-icon">🦁</div>
+      <div class="card-title-zh">迁徙体验</div>
+      <div class="card-title-en">Migration Experience</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>百万角马、斑马横渡马拉河<span class="en">Millions of wildebeest & zebra cross Mara River</span></li>
+        <li>鳄鱼伏击，生死一瞬的震撼<span class="en">Crocodile ambush · Life and death in seconds</span></li>
+        <li>狮群猎食，草原王者的力量<span class="en">Lion pride hunting · Power of the savanna</span></li>
+        <li>热气球俯瞰迁徙大军<span class="en">Hot air balloon over migration herds</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">📅</div>
+      <div class="card-title-zh">最佳时段</div>
+      <div class="card-title-en">Best Time</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>7月–10月 马拉河渡河高峰<span class="en">Jul–Oct · Peak Mara River crossing</span></li>
+        <li>1月–3月 塞伦盖蒂新生季<span class="en">Jan–Mar · Calving season in Serengeti</span></li>
+        <li>12月–3月 角马产仔，百万新生<span class="en">Dec–Mar · Wildebeest calving</span></li>
+        <li>全年不同区域都有迁徙<span class="en">Migration happens year-round in different areas</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🏕️</div>
+      <div class="card-title-zh">Safari营地</div>
+      <div class="card-title-en">Safari Camps</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>马赛马拉豪华帐篷营地<span class="en">Masai Mara luxury tented camps</span></li>
+        <li>塞伦盖蒂移动营地，跟随兽群<span class="en">Serengeti mobile camps · Follow the herds</span></li>
+        <li>私人保护区，无拥挤体验<span class="en">Private conservancy · No crowds</span></li>
+        <li>管家服务，五星野外体验<span class="en">Butler service · 5-star bush experience</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay2">
+      <div class="card-icon">💡</div>
+      <div class="card-title-zh">实用贴士</div>
+      <div class="card-title-en">Tips</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>提前6个月预订旺季营地<span class="en">Book peak season camps 6 months ahead</span></li>
+        <li>防蚊喷雾和长袖衣物必备<span class="en">Mosquito spray & long sleeves essential</span></li>
+        <li>望远镜和长焦镜头必带<span class="en">Binoculars & telephoto lens a must</span></li>
+        <li>尊重野生动物，保持安全距离<span class="en">Respect wildlife · Keep safe distance</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<footer id="page-footer"><div class="footer-brand">Minor Vacation Club · Africa</div><div class="footer-dest">动物大迁徙 · AFRICA</div></footer>
+<div id="lightbox" onclick="closeLightbox()"><button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button><div id="lightbox-content"></div></div>
+<button id="notes-toggle">🔒</button>
+<div id="notes-panel">
+  <div id="notes-password-screen"><p>输入密码查看笔记</p><input type="password" id="notes-pw-input" placeholder="••••••" maxlength="20"><button id="notes-pw-btn">确认</button></div>
+  <div id="notes-content"><textarea id="notes-textarea" placeholder="在这里写下你的销售笔记..."></textarea><div class="notes-footer"><span class="notes-save" id="notes-save-status"></span><button class="notes-lock" id="notes-lock-btn">🔒 锁定</button></div></div>
+</div>
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>buildTopNav('africa');initHiddenNotes('great-migration','allen');</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>维多利亚瀑布 · Africa</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+#hero::before{background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,transparent 30%,transparent 50%,rgba(0,0,0,0.75) 100%);}
+.section-line{background:#1e88e5;}
+.guide-card::before{background:#1e88e5;}
+#page-footer{background:#2a1a0a;}
+</style>
+</head>
+<body>
+<nav id="top-nav"></nav>
+<section id="hero">
+  <div id="media-container">
+    <div class="media-slide active"><img data-src="assets/images/victoria-falls1" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/victoria-falls2" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/victoria-falls3" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/victoria-falls4" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/victoria-falls5" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/victoria-falls6" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/victoria-falls7" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/victoria-falls8" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/victoria-falls9" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/victoria-falls10" alt=""></div>
+  </div>
+  <div id="media-dots">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div id="hero-content">
+    <div class="dest-eyebrow">Africa · 非洲探索</div>
+    <div class="dest-name-zh">维多利亚瀑布</div>
+    <div class="dest-name-en">Victoria Falls · Mosi-oa-Tunya</div>
+    <div class="dest-tagline">雷鸣般的烟雾，世界最壮观的瀑布震撼心灵<em>The Smoke That Thunders, the world's most spectacular waterfall</em></div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span>Explore</span></div>
+</section>
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%"><path d="M0,40 C240,0 480,60 720,30 C960,0 1200,50 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
+<section id="gallery">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">影像集</span><span class="section-en">Gallery</span></div>
+  <div class="photo-grid reveal">
+    <div class="photo-item" onclick="openLightbox('assets/images/victoria-falls1')"><img data-src="assets/images/victoria-falls1" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/victoria-falls2')"><img data-src="assets/images/victoria-falls2" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/victoria-falls3')"><img data-src="assets/images/victoria-falls3" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/victoria-falls4')"><img data-src="assets/images/victoria-falls4" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/victoria-falls5')"><img data-src="assets/images/victoria-falls5" alt=""><div class="photo-overlay"></div></div>
+  </div>
+  <div class="section-head reveal" style="margin-top:48px"><div class="section-line"></div><span class="section-zh">视频</span><span class="section-en">Videos</span></div>
+  <div class="video-grid reveal">
+    <div class="video-card" onclick="openVideo('assets/videos/victoria-falls_video1')"><video data-src="assets/videos/victoria-falls_video1" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/victoria-falls_video2')"><video data-src="assets/videos/victoria-falls_video2" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/victoria-falls_video3')"><video data-src="assets/videos/victoria-falls_video3" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/victoria-falls_video4')"><video data-src="assets/videos/victoria-falls_video4" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/victoria-falls_video5')"><video data-src="assets/videos/victoria-falls_video5" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+  </div>
+</section>
+<section id="guide">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">探索指南</span><span class="section-en">Explorer's Guide</span></div>
+  <div class="guide-grid">
+    <div class="guide-card reveal">
+      <div class="card-icon">🌊</div>
+      <div class="card-title-zh">瀑布体验</div>
+      <div class="card-title-en">Waterfall Experience</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>宽1.7公里，落差108米，世界之最<span class="en">1.7km wide, 108m drop · World's largest</span></li>
+        <li>彩虹横跨瀑布，如梦如幻<span class="en">Rainbow spanning the falls · Dreamlike</span></li>
+        <li>魔鬼泳池，瀑布边缘无边泳池<span class="en">Devil's Pool · Infinity pool at the edge</span></li>
+        <li>月虹观赏，满月时的神奇现象<span class="en">Lunar rainbow · Magical full moon phenomenon</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🚁</div>
+      <div class="card-title-zh">冒险活动</div>
+      <div class="card-title-en">Adventures</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>直升机飞越瀑布，震撼航拍<span class="en">Helicopter flight over the falls</span></li>
+        <li>蹦极跳，111米自由落体<span class="en">Bungee jump · 111m free fall</span></li>
+        <li>赞比西河漂流，顶级激流<span class="en">Zambezi white water rafting · World-class</span></li>
+        <li>微光飞行，日落时分的浪漫<span class="en">Microlight flight at sunset · Romantic</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🌤️</div>
+      <div class="card-title-zh">最佳时节</div>
+      <div class="card-title-en">Best Season</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>2月–5月 水量最大，最壮观<span class="en">Feb–May · Highest water volume, most spectacular</span></li>
+        <li>8月–12月 水量减少，魔鬼泳池开放<span class="en">Aug–Dec · Lower water, Devil's Pool open</span></li>
+        <li>全年可游，不同季节不同体验<span class="en">Year-round · Different experience each season</span></li>
+        <li>6月–8月 旱季，适合Safari结合<span class="en">Jun–Aug · Dry season, combine with safari</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay2">
+      <div class="card-icon">💡</div>
+      <div class="card-title-zh">实用贴士</div>
+      <div class="card-title-en">Tips</div>
+      <div class="card-divider"></div>
+      <ul class="card-items">
+        <li>赞比亚和津巴布韦两侧都可观赏<span class="en">View from Zambia or Zimbabwe side</span></li>
+        <li>带防水外套，水雾很大<span class="en">Waterproof jacket · Heavy spray</span></li>
+        <li>建议停留2-3天，体验所有活动<span class="en">Stay 2-3 days for all activities</span></li>
+        <li>可与南非开普敦连线游览<span class="en">Combine with Cape Town, South Africa</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<footer id="page-footer"><div class="footer-brand">Minor Vacation Club · Africa</div><div class="footer-dest">维多利亚瀑布 · AFRICA</div></footer>
+<div id="lightbox" onclick="closeLightbox()"><button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button><div id="lightbox-content"></div></div>
+<button id="notes-toggle">🔒</button>
+<div id="notes-panel">
+  <div id="notes-password-screen"><p>输入密码查看笔记</p><input type="password" id="notes-pw-input" placeholder="••••••" maxlength="20"><button id="notes-pw-btn">确认</button></div>
+  <div id="notes-content"><textarea id="notes-textarea" placeholder="在这里写下你的销售笔记..."></textarea><div class="notes-footer"><span class="notes-save" id="notes-save-status"></span><button class="notes-lock" id="notes-lock-btn">🔒 锁定</button></div></div>
+</div>
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>buildTopNav('africa');initHiddenNotes('victoria-falls','allen');</script>
+</body>
+</html>
