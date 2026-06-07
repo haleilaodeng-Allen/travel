@@ -87,7 +87,7 @@ const DESTINATIONS = [
     emoji: '🦁',
     lat: -2.0,
     lon: 34.0,
-    status: 'coming',
+    status: 'active',
     page: 'africa/index.html',
     color: '#e8826a',
     regions: [
