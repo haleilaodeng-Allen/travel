@@ -48,7 +48,6 @@ function initAutoImg() {
         loadCount++;
         if (loadCount >= totalCount) initSlideshow();
       };
-      i++;
     }
     tryNext();
   });
@@ -81,7 +80,6 @@ function initAutoVideo() {
         el.loop = true;
         el.play();
       };
-      i++;
     }
     tryNext();
   });
