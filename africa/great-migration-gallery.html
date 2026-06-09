@@ -42,7 +42,9 @@ body{background:#1a1008;color:#fff;}
 .thumb{
   aspect-ratio:1;overflow:hidden;cursor:pointer;
   position:relative;background:#0a0804;
+  display:none;
 }
+.thumb.loaded{display:block;}
 .thumb img,.thumb video{
   width:100%;height:100%;object-fit:cover;
   transition:transform 0.4s;
@@ -100,12 +102,26 @@ var imgExts = ['png','jpg','jpeg','webp','gif'];
 var vidExts = ['mp4','mov','webm'];
 var totalLoaded = 0;
 
-// 加载80张图片
+// 先创建所有80个图片位置，保持顺序
+for (var n = 1; n <= 80; n++) {
+  var div = document.createElement('div');
+  div.className = 'thumb';
+  div.id = 'thumb-img-' + n;
+  grid.appendChild(div);
+}
+
+// 再创建10个视频位置
+for (var v = 1; v <= 10; v++) {
+  var div = document.createElement('div');
+  div.className = 'thumb';
+  div.id = 'thumb-vid-' + v;
+  grid.appendChild(div);
+}
+
+// 加载图片
 for (var n = 1; n <= 80; n++) {
   (function(num) {
-    var div = document.createElement('div');
-    div.className = 'thumb';
-    div.style.display = 'none';
+    var div = document.getElementById('thumb-img-' + num);
     var img = document.createElement('img');
     var base = 'assets/images/gm-gallery' + num;
     var i = 0;
@@ -115,10 +131,9 @@ for (var n = 1; n <= 80; n++) {
       img.onerror = function() { i++; tryImg(); };
       img.onload = function() {
         img.onerror = null;
-        div.style.display = '';
         div.appendChild(img);
+        div.classList.add('loaded');
         div.onclick = function() { openGalleryLightbox(img.src, 'img'); };
-        grid.appendChild(div);
         totalLoaded++;
         document.getElementById('photo-count').textContent = totalLoaded + ' 张影像';
       };
@@ -127,12 +142,10 @@ for (var n = 1; n <= 80; n++) {
   })(n);
 }
 
-// 加载10个视频
+// 加载视频
 for (var v = 1; v <= 10; v++) {
   (function(num) {
-    var div = document.createElement('div');
-    div.className = 'thumb';
-    div.style.display = 'none';
+    var div = document.getElementById('thumb-vid-' + num);
     var video = document.createElement('video');
     video.muted = true;
     video.loop = true;
@@ -146,14 +159,13 @@ for (var v = 1; v <= 10; v++) {
       video.onerror = function() { i++; tryVid(); };
       video.oncanplay = function() {
         video.onerror = null;
-        div.style.display = '';
         div.appendChild(video);
         var icon = document.createElement('div');
         icon.className = 'thumb-video-icon';
         icon.innerHTML = '<div class="play-tri"></div>';
         div.appendChild(icon);
+        div.classList.add('loaded');
         div.onclick = function() { openGalleryLightbox(video.src, 'video'); };
-        grid.appendChild(div);
         video.play();
         totalLoaded++;
         document.getElementById('photo-count').textContent = totalLoaded + ' 张影像';
@@ -168,10 +180,72 @@ function openGalleryLightbox(src, type) {
   var lb = document.getElementById('lightbox');
   if (type === 'video') {
     lbc.innerHTML = '<video src="' + src + '" controls autoplay style="max-width:92vw;max-height:90vh;border-radius:4px"></video>';
+    lb.classList.add('show');
   } else {
-    lbc.innerHTML = '<img src="' + src + '">';
+    // 收集所有已加载的图片src
+    allImgSrcs = [];
+    document.querySelectorAll('.thumb.loaded img').forEach(function(img) {
+      allImgSrcs.push(img.src);
+    });
+    currentSlide = allImgSrcs.indexOf(src);
+    if (currentSlide < 0) currentSlide = 0;
+    showSlide();
+    lb.classList.add('show');
+    startAutoSlide();
   }
-  lb.classList.add('show');
+}
+
+var allImgSrcs = [];
+var currentSlide = 0;
+var autoTimer = null;
+
+function showSlide() {
+  var lbc = document.getElementById('lightbox-content');
+  lbc.innerHTML = '<img src="' + allImgSrcs[currentSlide] + '">' +
+    '<div style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.4);font-size:12px;letter-spacing:2px;">' +
+    (currentSlide + 1) + ' / ' + allImgSrcs.length + '</div>';
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % allImgSrcs.length;
+  showSlide();
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + allImgSrcs.length) % allImgSrcs.length;
+  showSlide();
+}
+
+function startAutoSlide() {
+  clearInterval(autoTimer);
+  autoTimer = setInterval(nextSlide, 5000);
+}
+
+// 键盘左右方向键
+document.addEventListener('keydown', function(e) {
+  var lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('show')) return;
+  if (e.key === 'ArrowRight') { nextSlide(); startAutoSlide(); }
+  if (e.key === 'ArrowLeft') { prevSlide(); startAutoSlide(); }
+  if (e.key === 'Escape') { closeLightbox(); clearInterval(autoTimer); }
+});
+
+// 点击图片切换下一张
+document.getElementById('lightbox-content').addEventListener('click', function(e) {
+  if (e.target.tagName === 'IMG') {
+    e.stopPropagation();
+    nextSlide();
+    startAutoSlide();
+  }
+});
+
+// 重写closeLightbox
+function closeLightbox() {
+  var lb = document.getElementById('lightbox');
+  if (lb) lb.classList.remove('show');
+  var lbc = document.getElementById('lightbox-content');
+  if (lbc) lbc.innerHTML = '';
+  clearInterval(autoTimer);
 }
 </script>
 </body>
