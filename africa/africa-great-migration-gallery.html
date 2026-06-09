@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>动物大迁徙 · 完整影像集</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+body{background:#1a1008;color:#fff;}
+#gallery-header{
+  padding:80px 5vw 40px;text-align:center;
+  background:linear-gradient(to bottom,#2a1a0a,#1a1008);
+}
+.gh-back{
+  display:inline-block;margin-bottom:24px;
+  color:rgba(255,255,255,0.5);text-decoration:none;
+  font-size:12px;letter-spacing:2px;
+  padding:6px 16px;border:1px solid rgba(255,255,255,0.15);
+  border-radius:20px;transition:all 0.2s;
+}
+.gh-back:hover{color:#fff;border-color:rgba(255,255,255,0.3);}
+.gh-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:36px;font-weight:300;letter-spacing:6px;
+  margin-bottom:8px;
+}
+.gh-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-style:italic;
+  color:rgba(255,255,255,0.4);letter-spacing:2px;
+  margin-bottom:8px;
+}
+.gh-count{
+  font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:1px;
+}
+#thumb-grid{
+  padding:20px 3vw 60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:4px;
+}
+.thumb{
+  aspect-ratio:1;overflow:hidden;cursor:pointer;
+  position:relative;background:#0a0804;
+}
+.thumb img,.thumb video{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.4s;
+}
+.thumb:hover img,.thumb:hover video{transform:scale(1.05);}
+.thumb-video-icon{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:40px;height:40px;
+  background:rgba(0,0,0,0.5);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+}
+.thumb-video-icon .play-tri{
+  width:0;height:0;
+  border-top:8px solid transparent;
+  border-bottom:8px solid transparent;
+  border-left:14px solid #fff;
+  margin-left:3px;
+}
+#lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.97);align-items:center;justify-content:center;backdrop-filter:blur(8px);}
+#lightbox.show{display:flex;}
+#lightbox img,#lightbox video{max-width:92vw;max-height:90vh;object-fit:contain;border-radius:4px;}
+#lightbox-close{position:absolute;top:20px;right:28px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:13px;cursor:pointer;letter-spacing:2px;padding:8px 16px;border-radius:20px;font-family:'Noto Sans SC',sans-serif;}
+#page-footer{background:#0a0804;padding:24px 5vw;display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.2);letter-spacing:2px;}
+.footer-note{font-size:11px;color:rgba(255,255,255,0.15);letter-spacing:1px;}
+@media(max-width:600px){#thumb-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));}}
+</style>
+</head>
+<body>
+<nav id="top-nav"></nav>
+<div id="gallery-header">
+  <a href="great-migration.html" class="gh-back">← 返回大迁徙</a>
+  <div class="gh-title">动物大迁徙</div>
+  <div class="gh-subtitle">The Great Migration · Complete Gallery</div>
+  <div class="gh-count" id="photo-count"></div>
+</div>
+<div id="thumb-grid"></div>
+<footer id="page-footer">
+  <div class="footer-brand">Minor Vacation Club · Africa</div>
+  <div class="footer-note">点击图片全屏查看</div>
+</footer>
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button>
+  <div id="lightbox-content"></div>
+</div>
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>
+buildTopNav('africa');
+
+var grid = document.getElementById('thumb-grid');
+var imgExts = ['png','jpg','jpeg','webp','gif'];
+var vidExts = ['mp4','mov','webm'];
+var totalLoaded = 0;
+
+// 加载80张图片
+for (var n = 1; n <= 80; n++) {
+  (function(num) {
+    var div = document.createElement('div');
+    div.className = 'thumb';
+    div.style.display = 'none';
+    var img = document.createElement('img');
+    var base = 'assets/images/gm-gallery' + num;
+    var i = 0;
+    function tryImg() {
+      if (i >= imgExts.length) return;
+      img.src = base + '.' + imgExts[i];
+      img.onerror = function() { i++; tryImg(); };
+      img.onload = function() {
+        img.onerror = null;
+        div.style.display = '';
+        div.appendChild(img);
+        div.onclick = function() { openGalleryLightbox(img.src, 'img'); };
+        grid.appendChild(div);
+        totalLoaded++;
+        document.getElementById('photo-count').textContent = totalLoaded + ' 张影像';
+      };
+    }
+    tryImg();
+  })(n);
+}
+
+// 加载10个视频
+for (var v = 1; v <= 10; v++) {
+  (function(num) {
+    var div = document.createElement('div');
+    div.className = 'thumb';
+    div.style.display = 'none';
+    var video = document.createElement('video');
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    var base = 'assets/videos/gm-gallery-v' + num;
+    var i = 0;
+    function tryVid() {
+      if (i >= vidExts.length) return;
+      video.src = base + '.' + vidExts[i];
+      video.onerror = function() { i++; tryVid(); };
+      video.oncanplay = function() {
+        video.onerror = null;
+        div.style.display = '';
+        div.appendChild(video);
+        var icon = document.createElement('div');
+        icon.className = 'thumb-video-icon';
+        icon.innerHTML = '<div class="play-tri"></div>';
+        div.appendChild(icon);
+        div.onclick = function() { openGalleryLightbox(video.src, 'video'); };
+        grid.appendChild(div);
+        video.play();
+        totalLoaded++;
+        document.getElementById('photo-count').textContent = totalLoaded + ' 张影像';
+      };
+    }
+    tryVid();
+  })(v);
+}
+
+function openGalleryLightbox(src, type) {
+  var lbc = document.getElementById('lightbox-content');
+  var lb = document.getElementById('lightbox');
+  if (type === 'video') {
+    lbc.innerHTML = '<video src="' + src + '" controls autoplay style="max-width:92vw;max-height:90vh;border-radius:4px"></video>';
+  } else {
+    lbc.innerHTML = '<img src="' + src + '">';
+  }
+  lb.classList.add('show');
+}
+</script>
+</body>
+</html>
