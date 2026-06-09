@@ -70,12 +70,11 @@ function initAutoVideo() {
         if (card) card.style.display = 'none';
         return;
       }
-      el.src = base + '.' + exts[i];
+      el.src = base + '.' + exts[i] + '#t=0.1';
       el.onerror = function() { i++; tryNext(); };
       el.onload = null;
       el.oncanplay = function() {
         el.onerror = null;
-        // 自动静音循环播放
         el.muted = true;
         el.loop = true;
         el.play();
