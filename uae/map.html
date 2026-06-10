@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>阿联酋探索地图 · UAE Map</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+body{background:#1a1a0a;}
+#map-wrapper{position:relative;width:100%;margin-top:52px;}
+#map-img{width:100%;display:block;user-select:none;-webkit-user-drag:none;}
+.hotspot{position:absolute;cursor:pointer;transform:translate(-50%,-50%);z-index:10;}
+.hotspot::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;border:2px solid currentColor;opacity:0;animation:pulseRing 2.5s ease-out infinite;}
+.hotspot::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;border:2px solid currentColor;opacity:0;animation:pulseRing 2.5s ease-out infinite 0.8s;}
+@keyframes pulseRing{0%{width:20px;height:20px;opacity:0.8;}100%{width:60px;height:60px;opacity:0;}}
+.hotspot-dot{width:16px;height:16px;border-radius:50%;background:currentColor;position:relative;z-index:2;box-shadow:0 0 12px currentColor,0 0 24px currentColor;transition:transform 0.3s;animation:dotBreath 3s ease-in-out infinite;}
+@keyframes dotBreath{0%,100%{box-shadow:0 0 8px currentColor,0 0 16px currentColor;}50%{box-shadow:0 0 16px currentColor,0 0 32px currentColor,0 0 48px currentColor;}}
+.hotspot:hover .hotspot-dot{transform:scale(1.3);}
+.hotspot-label{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:rgba(26,26,10,0.92);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;letter-spacing:1px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.25s,transform 0.25s;backdrop-filter:blur(8px);}
+.hotspot-label .en{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(255,255,255,0.45);margin-top:1px;text-align:center;}
+.hotspot:hover .hotspot-label{opacity:1;transform:translateX(-50%) translateY(0);}
+.spot-dubai{color:#c8a84c;}
+.spot-abudhabi{color:#1976d2;}
+#popup-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+#popup-overlay.show{display:flex;}
+#popup{background:linear-gradient(135deg,#1a1a0a,#0a0a05);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:36px;width:440px;max-width:90vw;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,0.6);position:relative;}
+#popup-icon{font-size:48px;margin-bottom:16px;}
+#popup-title{font-family:'Noto Serif SC',serif;font-size:24px;color:#fff;letter-spacing:3px;margin-bottom:4px;}
+#popup-title-en{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.4);letter-spacing:2px;margin-bottom:16px;}
+#popup-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:2;margin-bottom:24px;}
+.popup-btn{display:inline-block;padding:12px 32px;border:none;border-radius:30px;font-size:13px;letter-spacing:2px;font-family:'Noto Sans SC',sans-serif;cursor:pointer;transition:all 0.2s;text-decoration:none;font-weight:500;}
+.popup-btn:hover{opacity:0.85;transform:translateY(-1px);}
+#popup-close{position:absolute;top:16px;right:20px;background:none;border:none;color:rgba(255,255,255,0.4);font-size:20px;cursor:pointer;}
+#popup-close:hover{color:#fff;}
+#legend{padding:32px 5vw 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;background:#1a1a0a;}
+.legend-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;cursor:pointer;transition:all 0.2s;}
+.legend-item:hover{background:rgba(255,255,255,0.08);}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.legend-zh{font-size:13px;color:#fff;letter-spacing:1px;}
+.legend-en{font-size:11px;color:rgba(255,255,255,0.35);font-family:'Cormorant Garamond',serif;font-style:italic;}
+.legend-tag{font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.4);letter-spacing:1px;}
+#map-footer{padding:20px 5vw;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;background:#1a1a0a;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.25);letter-spacing:2px;}
+.footer-note{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:1px;}
+#coord-tool{position:fixed;bottom:80px;right:20px;z-index:200;background:rgba(0,0,0,0.85);color:#fff;padding:12px 16px;border-radius:12px;font-size:13px;font-family:monospace;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);display:none;}
+#coord-display{font-size:16px;color:#c8a84c;margin-top:4px;letter-spacing:1px;}
+#edit-toggle{position:fixed;bottom:20px;right:20px;z-index:200;background:rgba(255,150,50,0.9);color:#fff;border:none;padding:10px 18px;border-radius:24px;font-size:12px;cursor:pointer;letter-spacing:1px;font-family:'Noto Sans SC',sans-serif;}
+</style>
+</head>
+<body>
+<nav id="top-nav"></nav>
+<button id="edit-toggle" onclick="toggleEdit()">📍 坐标模式</button>
+<div id="coord-tool">点击地图获取坐标<div id="coord-display">--</div><div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:6px">复制坐标发给我</div></div>
+<div id="map-wrapper">
+  <img id="map-img" src="assets/images/uae-map.png" alt="阿联酋探索地图" onerror="this.src='assets/images/uae-map.jpg'">
+  <div class="hotspot spot-dubai" style="left:65%;top:45%" onclick="showPopup('dubai')"><div class="hotspot-dot"></div><div class="hotspot-label">迪拜<span class="en">Dubai</span></div></div>
+  <div class="hotspot spot-abudhabi" style="left:35%;top:55%" onclick="showPopup('abu-dhabi')"><div class="hotspot-dot"></div><div class="hotspot-label">阿布扎比<span class="en">Abu Dhabi</span></div></div>
+</div>
+<div id="legend">
+  <div class="legend-item" onclick="showPopup('dubai')"><div class="legend-dot" style="background:#c8a84c;box-shadow:0 0 8px #c8a84c"></div><div style="flex:1"><div class="legend-zh">迪拜</div><div class="legend-en">Dubai · City of Gold</div></div><span class="legend-tag">已开通</span></div>
+  <div class="legend-item" onclick="showPopup('abu-dhabi')"><div class="legend-dot" style="background:#1976d2;box-shadow:0 0 8px #1976d2"></div><div style="flex:1"><div class="legend-zh">阿布扎比</div><div class="legend-en">Abu Dhabi · Capital of Elegance</div></div><span class="legend-tag">已开通</span></div>
+</div>
+<div id="map-footer"><div class="footer-brand">Minor Vacation Club · UAE</div><div class="footer-note">点击发光标记探索目的地</div></div>
+<div id="popup-overlay" onclick="closePopup(event)">
+  <div id="popup">
+    <button id="popup-close" onclick="closePopup()">✕</button>
+    <div id="popup-icon">🏙️</div>
+    <div id="popup-title"></div>
+    <div id="popup-title-en"></div>
+    <div id="popup-desc"></div>
+    <a id="popup-action" href="#" class="popup-btn">探索此地 →</a>
+  </div>
+</div>
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>
+buildTopNav('uae');
+var spots={
+  dubai:{icon:'🏙️',zh:'迪拜',en:'Dubai · City of Gold',color:'#c8a84c',desc:'从沙漠崛起的未来之城，哈利法塔、帆船酒店、棕榈岛，极致奢华与现代奇迹的完美融合。',page:'dubai.html',ready:true},
+  'abu-dhabi':{icon:'🕌',zh:'阿布扎比',en:'Abu Dhabi · Capital of Elegance',color:'#1976d2',desc:'优雅的首都之城，谢赫扎耶德大清真寺、卢浮宫阿布扎比、法拉利世界，文化与奢华在这里交汇。',page:'abu-dhabi.html',ready:true},
+};
+function showPopup(id){
+  var s=spots[id];if(!s)return;
+  document.getElementById('popup-icon').textContent=s.icon;
+  document.getElementById('popup-title').textContent=s.zh;
+  document.getElementById('popup-title-en').textContent=s.en;
+  document.getElementById('popup-desc').textContent=s.desc;
+  var btn=document.getElementById('popup-action');
+  btn.style.background=s.color;btn.style.color=s.color==='#c8a84c'?'#000':'#fff';
+  btn.href=s.page;btn.textContent='探索此地 →';btn.className='popup-btn';
+  document.getElementById('popup-overlay').classList.add('show');
+}
+function closePopup(e){
+  if(!e||e.target===document.getElementById('popup-overlay')||e.currentTarget===document.getElementById('popup-close'))
+    document.getElementById('popup-overlay').classList.remove('show');
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('popup-overlay').classList.remove('show');});
+var editMode=false;
+function toggleEdit(){
+  editMode=!editMode;
+  document.getElementById('coord-tool').style.display=editMode?'block':'none';
+  document.getElementById('edit-toggle').style.background=editMode?'rgba(255,50,50,0.9)':'rgba(255,150,50,0.9)';
+  document.getElementById('edit-toggle').textContent=editMode?'❌ 退出坐标模式':'📍 坐标模式';
+  document.getElementById('map-img').style.cursor=editMode?'crosshair':'default';
+}
+document.getElementById('map-img').addEventListener('click',function(e){
+  if(!editMode)return;
+  var rect=this.getBoundingClientRect();
+  var x=((e.clientX-rect.left)/rect.width*100).toFixed(1);
+  var y=((e.clientY-rect.top)/rect.height*100).toFixed(1);
+  document.getElementById('coord-display').textContent='left:'+x+'%, top:'+y+'%';
+});
+</script>
+</body>
+</html>
