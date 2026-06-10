@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>阿联酋 · UAE</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+#hero::before{background:linear-gradient(to bottom,rgba(42,36,10,0.1) 0%,transparent 30%,transparent 55%,rgba(42,36,10,0.65) 100%);}
+#map-entry{background:#1a1a0a;}
+.section-line{background:#c8a84c;}
+.guide-card::before{background:#c8a84c;}
+#page-footer{background:#1a1a0a;}
+</style>
+</head>
+<body>
+<nav id="top-nav"></nav>
+<section id="hero">
+  <div id="media-container">
+    <div class="media-slide active"><img data-src="assets/images/uae1" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uae2" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uae3" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uae4" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uae5" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uae6" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uae7" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uae8" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uae9" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/uae10" alt=""></div>
+  </div>
+  <div id="media-dots">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div id="hero-content">
+    <div class="dest-eyebrow">Anantara Destinations · 安纳塔拉目的地</div>
+    <div class="dest-name-zh">阿联酋</div>
+    <div class="dest-name-en">United Arab Emirates</div>
+    <div class="dest-tagline">沙漠与未来之城，极致奢华的黄金国度<em>Where desert meets the future, a golden land of ultimate luxury</em></div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span>Explore</span></div>
+</section>
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%"><path d="M0,40 C240,0 480,60 720,30 C960,0 1200,50 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
+<section id="gallery">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">影像集</span><span class="section-en">Gallery</span></div>
+  <div class="photo-grid reveal">
+    <div class="photo-item" onclick="openLightbox('assets/images/uae1')"><img data-src="assets/images/uae1" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/uae2')"><img data-src="assets/images/uae2" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/uae3')"><img data-src="assets/images/uae3" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/uae4')"><img data-src="assets/images/uae4" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/uae5')"><img data-src="assets/images/uae5" alt=""><div class="photo-overlay"></div></div>
+  </div>
+  <div class="section-head reveal" style="margin-top:48px"><div class="section-line"></div><span class="section-zh">视频</span><span class="section-en">Videos</span></div>
+  <div class="video-grid reveal">
+    <div class="video-card" onclick="openVideo('assets/videos/uae_video1')"><video data-src="assets/videos/uae_video1" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/uae_video2')"><video data-src="assets/videos/uae_video2" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/uae_video3')"><video data-src="assets/videos/uae_video3" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/uae_video4')"><video data-src="assets/videos/uae_video4" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/uae_video5')"><video data-src="assets/videos/uae_video5" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+  </div>
+</section>
+<section id="map-entry">
+  <div class="map-bg" style="background-image:url('assets/images/uae-map.png')"></div>
+  <div class="map-content">
+    <div class="map-label" style="color:#c8a84c">Explore · 深度探索</div>
+    <div class="map-title">阿联酋探索地图</div>
+    <div class="map-subtitle">Discover Dubai & Abu Dhabi</div>
+    <a href="map.html" class="map-btn" style="background:#c8a84c;color:#000;font-weight:500;box-shadow:0 8px 24px rgba(200,168,76,0.3)">探索地图 →</a>
+  </div>
+</section>
+<section id="guide">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">旅行指南</span><span class="section-en">Travel Guide</span></div>
+  <div class="guide-grid">
+    <div class="guide-card reveal">
+      <div class="card-icon">🌤️</div>
+      <div class="card-title-zh">最佳时节</div><div class="card-title-en">Best Season</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>11月–3月 凉季，气温舒适<span class="en">Nov–Mar · Cool season, pleasant temps</span></li>
+        <li>12月–1月 最佳旅行月份<span class="en">Dec–Jan · Peak travel months</span></li>
+        <li>6月–9月 酷热，但价格最优<span class="en">Jun–Sep · Hot but best prices</span></li>
+        <li>斋月期间注意当地习俗<span class="en">Ramadan · Respect local customs</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🏙️</div>
+      <div class="card-title-zh">必玩体验</div><div class="card-title-en">Experiences</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>哈利法塔登顶，俯瞰全城<span class="en">Burj Khalifa · World's tallest building</span></li>
+        <li>沙漠冲沙，日落骑骆驼<span class="en">Desert safari · Sunset camel ride</span></li>
+        <li>谢赫扎耶德大清真寺<span class="en">Sheikh Zayed Grand Mosque</span></li>
+        <li>棕榈岛亚特兰蒂斯水世界<span class="en">Atlantis Aquaventure Waterpark</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🛍️</div>
+      <div class="card-title-zh">购物美食</div><div class="card-title-en">Shopping & Dining</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>迪拜Mall，全球最大购物中心<span class="en">Dubai Mall · World's largest</span></li>
+        <li>黄金市场，传统阿拉伯集市<span class="en">Gold Souk · Traditional market</span></li>
+        <li>阿拉伯传统美食，烤肉盛宴<span class="en">Arabic cuisine · Kebab feast</span></li>
+        <li>七星帆船酒店下午茶<span class="en">Burj Al Arab afternoon tea</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay2">
+      <div class="card-icon">💡</div>
+      <div class="card-title-zh">出行贴士</div><div class="card-title-en">Tips</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>货币迪拉姆，美元也通用<span class="en">AED currency · USD widely accepted</span></li>
+        <li>公共场合着装需保守<span class="en">Dress modestly in public areas</span></li>
+        <li>地铁和出租车都很方便<span class="en">Metro & taxi both convenient</span></li>
+        <li>迪拜到阿布扎比约1.5小时车程<span class="en">Dubai to Abu Dhabi ~1.5hr drive</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<footer id="page-footer"><div class="footer-brand">Minor Vacation Club</div><div class="footer-dest">阿联酋 · UAE</div></footer>
+<div id="lightbox" onclick="closeLightbox()"><button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button><div id="lightbox-content"></div></div>
+<button id="notes-toggle">🔒</button>
+<div id="notes-panel">
+  <div id="notes-password-screen"><p>输入密码查看笔记</p><input type="password" id="notes-pw-input" placeholder="••••••" maxlength="20"><button id="notes-pw-btn">确认</button></div>
+  <div id="notes-content"><textarea id="notes-textarea" placeholder="在这里写下你的销售笔记..."></textarea><div class="notes-footer"><span class="notes-save" id="notes-save-status"></span><button class="notes-lock" id="notes-lock-btn">🔒 锁定</button></div></div>
+</div>
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>buildTopNav('uae');initHiddenNotes('uae','allen');</script>
+</body>
+</html>
