@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>泰国 · Thailand</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+#hero::before{background:linear-gradient(to bottom,rgba(42,36,10,0.1) 0%,transparent 30%,transparent 55%,rgba(42,36,10,0.65) 100%);}
+#map-entry{background:#2a1a08;}
+.section-line{background:#f0c060;}
+.guide-card::before{background:#f0c060;}
+#page-footer{background:#2a1a08;}
+</style>
+</head>
+<body>
+<nav id="top-nav"></nav>
+<section id="hero">
+  <div id="media-container">
+    <div class="media-slide active"><img data-src="assets/images/thailand1" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/thailand2" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/thailand3" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/thailand4" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/thailand5" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/thailand6" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/thailand7" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/thailand8" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/thailand9" alt=""></div>
+    <div class="media-slide"><img data-src="assets/images/thailand10" alt=""></div>
+  </div>
+  <div id="media-dots">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <div id="hero-content">
+    <div class="dest-eyebrow">Anantara Destinations · 安纳塔拉目的地</div>
+    <div class="dest-name-zh">泰国</div>
+    <div class="dest-name-en">Thailand</div>
+    <div class="dest-tagline">微笑之国，从都市繁华到海岛秘境<em>The Land of Smiles, from vibrant cities to island paradise</em></div>
+  </div>
+  <div id="scroll-hint"><div class="scroll-line"></div><span>Explore</span></div>
+</section>
+<div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;width:100%"><path d="M0,40 C240,0 480,60 720,30 C960,0 1200,50 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/></svg></div>
+<section id="gallery">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">影像集</span><span class="section-en">Gallery</span></div>
+  <div class="photo-grid reveal">
+    <div class="photo-item" onclick="openLightbox('assets/images/thailand1')"><img data-src="assets/images/thailand1" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/thailand2')"><img data-src="assets/images/thailand2" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/thailand3')"><img data-src="assets/images/thailand3" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/thailand4')"><img data-src="assets/images/thailand4" alt=""><div class="photo-overlay"></div></div>
+    <div class="photo-item" onclick="openLightbox('assets/images/thailand5')"><img data-src="assets/images/thailand5" alt=""><div class="photo-overlay"></div></div>
+  </div>
+  <div class="section-head reveal" style="margin-top:48px"><div class="section-line"></div><span class="section-zh">视频</span><span class="section-en">Videos</span></div>
+  <div class="video-grid reveal">
+    <div class="video-card" onclick="openVideo('assets/videos/thailand_video1')"><video data-src="assets/videos/thailand_video1" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/thailand_video2')"><video data-src="assets/videos/thailand_video2" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/thailand_video3')"><video data-src="assets/videos/thailand_video3" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/thailand_video4')"><video data-src="assets/videos/thailand_video4" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+    <div class="video-card" onclick="openVideo('assets/videos/thailand_video5')"><video data-src="assets/videos/thailand_video5" preload="metadata" muted playsinline></video><div class="video-play-btn"><div class="play-circle"><div class="play-triangle"></div></div></div></div>
+  </div>
+</section>
+<section id="map-entry">
+  <div class="map-bg" style="background-image:url('assets/images/thailand-map.png')"></div>
+  <div class="map-content">
+    <div class="map-label" style="color:#f0c060">Explore · 深度探索</div>
+    <div class="map-title">泰国探索地图</div>
+    <div class="map-subtitle">From Bangkok to the islands</div>
+    <a href="map.html" class="map-btn" style="background:#f0c060;color:#000;font-weight:500;box-shadow:0 8px 24px rgba(240,192,96,0.3)">探索地图 →</a>
+  </div>
+</section>
+<section id="guide">
+  <div class="section-head reveal"><div class="section-line"></div><span class="section-zh">旅行指南</span><span class="section-en">Travel Guide</span></div>
+  <div class="guide-grid">
+    <div class="guide-card reveal">
+      <div class="card-icon">🌤️</div>
+      <div class="card-title-zh">最佳时节</div><div class="card-title-en">Best Season</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>11月–2月 凉季，最舒适<span class="en">Nov–Feb · Cool season, most pleasant</span></li>
+        <li>3月–5月 热季，价格优惠<span class="en">Mar–May · Hot season, better prices</span></li>
+        <li>6月–10月 雨季，短暂阵雨<span class="en">Jun–Oct · Rainy, brief showers</span></li>
+        <li>泼水节4月13-15日不可错过<span class="en">Songkran Apr 13-15 · Must experience</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🍜</div>
+      <div class="card-title-zh">必吃推荐</div><div class="card-title-en">Must Try</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>冬阴功汤，泰国国菜<span class="en">Tom Yum Goong · Thai national dish</span></li>
+        <li>芒果糯米饭，甜蜜经典<span class="en">Mango Sticky Rice · Sweet classic</span></li>
+        <li>路边摊Pad Thai，地道风味<span class="en">Street Pad Thai · Authentic flavor</span></li>
+        <li>清迈Khao Soi咖喱面<span class="en">Chiang Mai Khao Soi curry noodles</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay">
+      <div class="card-icon">🏝️</div>
+      <div class="card-title-zh">必玩体验</div><div class="card-title-en">Experiences</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>大皇宫与玉佛寺，曼谷地标<span class="en">Grand Palace · Bangkok landmark</span></li>
+        <li>泰式按摩，传统疗愈体验<span class="en">Thai massage · Traditional healing</span></li>
+        <li>海岛跳岛游，碧海蓝天<span class="en">Island hopping · Crystal blue waters</span></li>
+        <li>夜市文化，热闹非凡<span class="en">Night market culture · Vibrant & fun</span></li>
+      </ul>
+    </div>
+    <div class="guide-card reveal reveal-delay2">
+      <div class="card-icon">💡</div>
+      <div class="card-title-zh">出行贴士</div><div class="card-title-en">Tips</div><div class="card-divider"></div>
+      <ul class="card-items">
+        <li>货币泰铢，支付宝微信部分可用<span class="en">THB · Alipay/WeChat partially accepted</span></li>
+        <li>进寺庙需脱鞋，着装保守<span class="en">Remove shoes at temples · Dress modestly</span></li>
+        <li>出租车打表或用Grab叫车<span class="en">Taxi by meter or use Grab app</span></li>
+        <li>小费文化，餐厅约10%<span class="en">Tipping ~10% at restaurants</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<footer id="page-footer"><div class="footer-brand">Minor Vacation Club</div><div class="footer-dest">泰国 · THAILAND</div></footer>
+<div id="lightbox" onclick="closeLightbox()"><button id="lightbox-close" onclick="closeLightbox()">关闭 ✕</button><div id="lightbox-content"></div></div>
+<button id="notes-toggle">🔒</button>
+<div id="notes-panel">
+  <div id="notes-password-screen"><p>输入密码查看笔记</p><input type="password" id="notes-pw-input" placeholder="••••••" maxlength="20"><button id="notes-pw-btn">确认</button></div>
+  <div id="notes-content"><textarea id="notes-textarea" placeholder="在这里写下你的销售笔记..."></textarea><div class="notes-footer"><span class="notes-save" id="notes-save-status"></span><button class="notes-lock" id="notes-lock-btn">🔒 锁定</button></div></div>
+</div>
+<script src="../destinations.js"></script>
+<script src="../shared/main.js"></script>
+<script>buildTopNav('thailand');initHiddenNotes('thailand','allen');</script>
+</body>
+</html>
