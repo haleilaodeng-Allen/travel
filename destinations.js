@@ -60,7 +60,7 @@ const DESTINATIONS = [
       { id: 'chiang-mai', name: '清迈', nameEn: 'Chiang Mai', page: 'thailand/chiang-mai.html' },
       { id: 'chiang-rai', name: '清莱', nameEn: 'Chiang Rai', page: 'thailand/chiang-rai.html' },
       { id: 'krabi', name: '甲米', nameEn: 'Krabi', page: 'thailand/krabi.html' },
-      { id: 'khao-sok', name: '考索', nameEn: 'Khao Sok', page: 'thailand/khao-sok.html' },
+      { id: 'khao-lak', name: '考拉', nameEn: 'Khao Lak', page: 'thailand/khao-lak.html' },
       { id: 'koh-samui', name: '苏梅岛', nameEn: 'Koh Samui', page: 'thailand/koh-samui.html' },
       { id: 'phuket', name: '普吉岛', nameEn: 'Phuket', page: 'thailand/phuket.html' },
     ]
@@ -87,7 +87,7 @@ const DESTINATIONS = [
     emoji: '🦁',
     lat: -2.0,
     lon: 34.0,
-    status: 'active',
+    status: 'coming',
     page: 'africa/index.html',
     color: '#e8826a',
     regions: [
